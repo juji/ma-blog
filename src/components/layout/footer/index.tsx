@@ -1,4 +1,7 @@
+'use client'
+
 import styles from './footer.module.css'
+import { useMemo } from 'react'
 
 const bg = [
   '#fdbe02',
@@ -17,10 +20,14 @@ const bg = [
 
 export default function Footer({ className }: React.HTMLAttributes<HTMLElement>){
 
+  const color = useMemo(() => {
+    return bg[Math.floor(Math.random()*bg.length)]
+  },[])
+
   return <footer className={`${styles.footer} ${className||''}`}>
     <div className={styles.footerSpacer}></div>
     <div className={styles.footerContentContainer} 
-      style={{background: bg[Math.floor(Math.random()*bg.length)]}}>
+      style={{background: color}}>
       <div className={styles.footerContent}>
         <div>footer left</div>
         <div>footer right</div>
