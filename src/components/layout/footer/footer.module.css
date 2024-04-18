@@ -26,8 +26,17 @@
       margin: 0 auto;
       height: 100%;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      /* justify-content: space-between; */
+      /* align-items: center; */
+
+      @media screen and (min-width: 400px) { 
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+      }
+      
 
       & a {
         color: var(--footer-text-color);
@@ -36,6 +45,13 @@
       & .footerLeft{
         & .jujiyangasli{
           font-size: 1.5rem;
+        }
+      }
+
+      & .footerRight{
+        margin-top: 1rem;
+        @media screen and (min-width: 400px) { 
+          margin-top: 0rem;
         }
       }
 
