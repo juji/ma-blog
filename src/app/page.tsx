@@ -17,7 +17,7 @@ export default async function Home() {
       <Link href="/about">About</Link><br />
 
       {data.posts.map((v: Post) => {
-        return <div>
+        return <div key={v.uuid}>
           <br />
           <p><Link href={`/${v.slug}`}>{v.title}</Link></p>
           <p>{v.excerpt.replace(/\n/g,' ').replace(/\ +/g,' ')}</p>
