@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Code } from "bright"
 import type Post from "@/types/post"
 
 export default async function Home() {
@@ -25,7 +26,7 @@ export default async function Home() {
         </div>
       })}
 
-      <pre>{JSON.stringify(data,null,2)}</pre>
+      <Code lang="json">{JSON.stringify(data,null,2)}</Code>
     </main>
   );
 }

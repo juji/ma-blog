@@ -25,7 +25,7 @@ export default async function Page({ params }: { params : { page: string }}) {
         </div>
       })}
 
-      <pre>{JSON.stringify(data,null,2)}</pre>
+      <pre className="test">{JSON.stringify(data,null,2)}</pre>
     </main>
   );
 }

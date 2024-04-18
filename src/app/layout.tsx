@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
+import Header from "@/components/layout/header";
+import Main from "@/components/layout/main";
+import Footer from "@/components/layout/footer";
+
 import "./reset.css";
 import "./globals.css";
 
@@ -19,7 +23,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Header className="juji-header"/>
+        <Main className="juji-main">{'this is main'}</Main>
+        <Footer className="juji-footer" />
+      </body>
     </html>
   );
 }
