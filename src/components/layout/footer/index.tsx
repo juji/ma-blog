@@ -1,7 +1,4 @@
-"use client"
-
 import styles from './footer.module.css'
-import { useRef } from 'react'
 
 const bg = [
   '#fdbe02',
@@ -20,12 +17,10 @@ const bg = [
 
 export default function Footer({ className }: React.HTMLAttributes<HTMLElement>){
 
-  const color = useRef(bg[Math.floor(Math.random()*bg.length)])
-
   return <footer className={`${styles.footer} ${className||''}`}>
     <div className={styles.footerSpacer}></div>
     <div className={styles.footerContentContainer} 
-      style={{background: color.current}}>
+      style={{background: bg[Math.floor(Math.random()*bg.length)]}}>
       <div className={styles.footerContent}>
         <div>footer left</div>
         <div>footer right</div>
