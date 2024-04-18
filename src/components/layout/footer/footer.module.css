@@ -2,14 +2,15 @@
 
 .footer{
   width: 100%;
+  font-size: 0.9rem;
 
   & > .footerSpacer{
-    height: 10rem;
+    height: var(--footer-height);
   }
 
   & > .footerContentContainer{
-    background: #2a2a2a;
-    height: 10rem;
+    background: var(--footer-bg);
+    height: var(--footer-height);
     width: 100%;
     position: fixed;
     z-index: 0;

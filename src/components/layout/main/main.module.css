@@ -2,20 +2,20 @@
 
 .main{
 
-  margin-top: 5rem;
   padding: 3rem var(--pading-lr);
+  padding-top: calc(var(--header-height) + 3rem);
   padding-bottom: 8rem;
   
   position: relative;
   z-index: 2;
   background: var(--bg-color);
-  min-height: 100%;
+  min-height: calc(100% - var(--footer-height));
   /* border-bottom: 3px solid rgba(0,0,0,0.2); */
-  border-bottom: 1px solid #333;
+  border-bottom: var(--border-bottom);
   box-shadow:
-  0px 4.3px 1.1px rgba(0, 0, 0, 0.061),
-  0px 12.9px 16px rgba(0, 0, 0, 0.118),
-  0px 100px 80px rgba(0, 0, 0, 0.16)
+    0px 4.3px 1.1px rgba(0, 0, 0, 0.061),
+    0px 12.9px 16px rgba(0, 0, 0, 0.118),
+    0px 100px 80px rgba(0, 0, 0, 0.16)
   ;
   
   & > .mainContent{

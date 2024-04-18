@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Code } from "bright"
+import CodeHiglight from "@/components/code-highlight";
 import type Post from "@/types/post"
 
 export default async function Home() {
@@ -26,7 +26,7 @@ export default async function Home() {
         </div>
       })}
 
-      <Code lang="json">{JSON.stringify(data,null,2)}</Code>
+      <CodeHiglight lang="json">{JSON.stringify(data,null,2)}</CodeHiglight>
     </main>
   );
 }

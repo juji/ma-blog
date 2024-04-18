@@ -25,7 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Header className="juji-header"/>
-        <Main className="juji-main">{'this is main'}</Main>
+        <Main className="juji-main">{children}</Main>
         <Footer className="juji-footer" />
       </body>
     </html>

@@ -5,6 +5,7 @@ export default function Main({ className, children }: React.HTMLAttributes<HTMLE
 
   return <div className={`${styles.main} ${className||''}`}>
     <div className={`${styles.mainContent}`}>{children}
+    {/* <p>asdf</p>
     <p>asdf</p>
     <p>asdf</p>
     <p>asdf</p>
@@ -46,8 +47,7 @@ export default function Main({ className, children }: React.HTMLAttributes<HTMLE
     <p>asdf</p>
     <p>asdf</p>
     <p>asdf</p>
-    <p>asdf</p>
-    <p>asdf</p>
+    <p>asdf</p> */}
     </div>
   </div>
 

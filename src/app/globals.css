@@ -1,10 +1,18 @@
 :root{
 
   --bg-color: #161616;
-  --text-color: hsla(0,0%,93%,1);
+  --text-color: hsla(0,0%,83%,1);
   --link-color: rgb(7, 218, 7);
+
   --content-width: 800px;
+  --header-height: 4rem;
+  --footer-height: 10rem;
   --pading-lr: 2rem;
+
+  --footer-bg: #2a2a2a;
+  --header-bg: rgb(17 17 17 / 72%);
+
+  --border-bottom: 1px solid #292929;
 
 }
 
@@ -25,9 +33,13 @@ html, body {
   line-height: 1.78;
   background-color: var(--bg-color);
   color: var(--text-color);
-
   font-size: 1.05rem;
 }
+
+/* body{
+  display: grid;
+  grid-template-columns: 1fr auto;
+} */
 
 a{
   color: var(--link-color);
