@@ -1,0 +1,32 @@
+
+
+.postlink{
+
+  margin: 4rem 0rem;
+  padding-bottom: 4rem;
+  position: relative;
+  
+
+  border-bottom: 1px dotted #444;
+
+  & a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: bold;
+
+    &:hover{
+      color: var(--link-color);
+    }
+  }
+
+  & p{
+    margin: 1rem 0rem;
+  }
+
+  & .publishAt{
+    font-size: 0.8rem;
+    color: var(--muted-color);
+  }
+
+}

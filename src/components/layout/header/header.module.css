@@ -32,6 +32,12 @@
     align-items: center;
     z-index: 2;
     justify-content: space-between;
+
+    & > .headerLogo img {
+      vertical-align: middle;
+      height: calc(var(--header-height) - 42px);
+      width: auto;
+    }
   }
 
 }

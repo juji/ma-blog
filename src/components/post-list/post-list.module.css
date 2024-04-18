@@ -1,0 +1,9 @@
+
+
+.postlist{
+
+  & > div:last-child{
+    border-bottom: 0px dotted #555;
+  }
+
+}

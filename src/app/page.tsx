@@ -1,6 +1,7 @@
-import Link from "next/link";
-import CodeHiglight from "@/components/code-highlight";
 import type Post from "@/types/post"
+
+import CodeHiglight from "@/components/code-highlight";
+import PostList from "@/components/post-list";
 
 export default async function Home() {
 
@@ -15,18 +16,11 @@ export default async function Home() {
   return (
     <main>
       <p>This is Home</p>
-      <Link href="/about">About</Link><br />
 
-      {data.posts.map((v: Post) => {
-        return <div key={v.uuid}>
-          <br />
-          <p><Link href={`/post/${v.slug}`}>{v.title}</Link></p>
-          <p>{v.excerpt.replace(/\n/g,' ').replace(/\ +/g,' ')}</p>
-          <hr />
-        </div>
-      })}
+      <PostList posts={data.posts} />
 
       <CodeHiglight lang="json">{JSON.stringify(data,null,2)}</CodeHiglight>
+
     </main>
   );
 }

@@ -2,6 +2,7 @@
 
   --bg-color: #161616;
   --text-color: hsla(0,0%,83%,1);
+  --muted-color: hsla(0,0%,63%,1);
   --link-color: rgb(7, 218, 7);
 
   --content-width: 800px;
@@ -30,7 +31,8 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  line-height: 1.78;
+  line-height: 1.68;
+  letter-spacing: 0.025em;
   background-color: var(--bg-color);
   color: var(--text-color);
   font-size: 1.05rem;
