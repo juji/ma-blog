@@ -7,8 +7,10 @@ export default function Hero(){
     <h1 className={styles.big}>Juji&apos;s Blog</h1>
     <p className={styles.what}>What? where? here? ... Awesome!</p>
     <p className={styles.note}>
-      Just some notes that will help me with web development.<br />
-      I hope it can help you too. ;)</p>
+      <span>Just some notes</span>{' '}
+      <span>that will help me</span>{' '}
+      <span>with web development.</span><br />
+      <span>I hope it can</span>{' '}<span>help you too. ;)</span></p>
   </div>
 
 }
