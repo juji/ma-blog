@@ -20,10 +20,12 @@ const bg = [
 
 export default function Footer({ className }: React.HTMLAttributes<HTMLElement>){
 
+  const color = useRef(bg[Math.floor(Math.random()*bg.length)])
+
   return <footer className={`${styles.footer} ${className||''}`}>
     <div className={styles.footerSpacer}></div>
     <div className={styles.footerContentContainer} 
-      style={{background: bg[Math.floor(Math.random()*bg.length)]}}>
+      style={{background: color.current}}>
       <div className={styles.footerContent}>
         <div>footer left</div>
         <div>footer right</div>
