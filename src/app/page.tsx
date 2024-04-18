@@ -1,7 +1,18 @@
-import type Post from "@/types/post"
 
-import CodeHiglight from "@/components/code-highlight";
+import type { Metadata } from 'next'
+
+import Hero from "@/components/hero";
 import PostList from "@/components/post-list";
+// import CodeHighlight from '@/components/code-highlight';
+
+
+export const metadata: Metadata = {
+  title: "Juji's Blog",
+  description: 'Just some notes that will help me with web development. I hope it can help you too. ;)',
+  openGraph: {
+    images: [ 'https://jujiyangasli.com/images/juji-1200-630.jpeg' ]
+  }
+}
 
 export default async function Home() {
 
@@ -15,12 +26,9 @@ export default async function Home() {
 
   return (
     <main>
-      <p>This is Home</p>
-
+      <Hero />
       <PostList posts={data.posts} />
-
-      <CodeHiglight lang="json">{JSON.stringify(data,null,2)}</CodeHiglight>
-
+      {/* <CodeHighlight lang="json">{JSON.stringify(data,null,2)}</CodeHighlight>  */}
     </main>
   );
 }

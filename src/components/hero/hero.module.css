@@ -1,0 +1,21 @@
+
+
+.hero{
+
+  margin-bottom: 7rem;
+
+  & .big{
+    font-size: 5rem;
+    font-weight: bold;
+  }
+
+  & .what{
+    font-size: 2rem;
+    line-height: 4rem;
+  }
+
+  & .note{
+    font-size: 1rem;
+  }
+
+}

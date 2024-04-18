@@ -9,7 +9,7 @@ type CodeParams = {
 
 Code.theme = 'dracula'
 
-export default function CodeHiglight({ 
+export default function CodeHighlight({ 
   lang,
   children
 } : CodeParams){

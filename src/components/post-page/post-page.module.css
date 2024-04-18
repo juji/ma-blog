@@ -1,0 +1,23 @@
+
+
+.post{
+
+  & > h1{
+    font-size: 3rem;
+    font-weight: bold;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  & > .postImage {
+
+    margin-bottom: 2rem;
+
+    & > img{
+      display: block;
+      max-width: 100%;
+    }
+
+  }
+
+}
