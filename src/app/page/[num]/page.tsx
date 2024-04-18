@@ -1,11 +1,11 @@
 import Link from "next/link";
 import type Post from "@/types/post"
 
-export default async function Home() {
+export default async function Page({ params }: { params : { page: string }}) {
 
   const res = await fetch(
     (process.env.GHOST_URL as string) +
-    '/ghost/api/content/posts/?key=' +
+    `/ghost/api/content/posts/?page=${params.page}key=` +
     (process.env.GHOST_KEY as string)
   )
   const data = await res.json()
