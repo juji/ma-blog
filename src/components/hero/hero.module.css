@@ -5,17 +5,24 @@
   margin-bottom: 7rem;
 
   & .big{
-    font-size: 5rem;
+    font-size: 3rem;
+    @media screen and (min-width: 522px) { 
+      font-size: 5rem;
+    }
     font-weight: bold;
   }
 
   & .what{
-    font-size: 2rem;
-    line-height: 4rem;
+    font-size: 1.5rem;
+    line-height: 2.6rem;
+    margin-bottom: 1rem;
+    @media screen and (min-width: 522px) { 
+      font-size: 2rem;
+    }
   }
 
   & .note{
     font-size: 1rem;
   }
-
+  
 }
