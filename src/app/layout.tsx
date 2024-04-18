@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Work_Sans } from "next/font/google";
 
 import Header from "@/components/layout/header";
 import Main from "@/components/layout/main";
@@ -9,7 +9,7 @@ import "./reset.css";
 import "./globals.css";
 
 
-const inter = Inter({ subsets: ["latin"] });
+const workSans = Work_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={workSans.className}>
         <Header className="juji-header"/>
         <Main className="juji-main">{children}</Main>
         <Footer className="juji-footer" />

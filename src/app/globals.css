@@ -3,7 +3,8 @@
   --bg-color: #161616;
   --text-color: hsla(0,0%,83%,1);
   --muted-color: hsla(0,0%,63%,1);
-  --link-color: rgb(7, 218, 7);
+  --muted2-color: #bbb;
+  --link-color: rgb(35, 189, 35);
 
   --content-width: 800px;
   --header-height: 4rem;
