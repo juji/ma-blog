@@ -2,6 +2,7 @@
 
 import styles from './footer.module.css'
 import { useMemo } from 'react'
+import { usePathname } from 'next/navigation'
 
 const bg = [
   '#fdbe02',
@@ -20,9 +21,10 @@ const bg = [
 
 export default function Footer({ className }: React.HTMLAttributes<HTMLElement>){
 
+  const pathname = usePathname()
   const color = useMemo(() => {
     return bg[Math.floor(Math.random()*bg.length)]
-  },[])
+  },[ pathname ])
 
   return <footer className={`${styles.footer} ${className||''}`}>
     <div className={styles.footerSpacer}></div>
