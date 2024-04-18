@@ -21,6 +21,7 @@
     
     & > .footerContent{
       max-width: var(--content-width);
+      color: var(--footer-text-color);
       margin: 0 auto;
       height: 100%;
       display: flex;

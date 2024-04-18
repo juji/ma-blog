@@ -2,12 +2,24 @@
 
 .post{
 
-  & > h1{
-    font-size: 3rem;
-    font-weight: bold;
+  & > .header {
+
+    display: flex;
     margin-top: 2rem;
     margin-bottom: 2rem;
+    justify-content: space-between;
+    align-items: center;
+
+    & > h1{
+      font-size: 3rem;
+      font-weight: bold;
+    }
+
+    & > span{
+      color: var(--muted-color);
+    }
   }
+
 
   & > .postImage {
 
