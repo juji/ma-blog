@@ -1,3 +1,4 @@
+import Link from "next/link";
 
 export default async function Home() {
 
@@ -11,7 +12,8 @@ export default async function Home() {
 
   return (
     <main>
-      <p>This is one</p>
+      <p>This is Home</p>
+      <Link href="/about">About</Link><br />
       <pre>{JSON.stringify(data,null,2)}</pre>
     </main>
   );
