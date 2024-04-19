@@ -14,7 +14,7 @@ type Props = { params: { slug: string } }
 //   return posts
 // }
 
-export const revalidate = 3600
+// export const revalidate = 3600
 
 export async function generateMetadata(
   { params }: Props,
@@ -27,7 +27,7 @@ export async function generateMetadata(
     `/ghost/api/content/posts/slug/${params.slug}?` +
     `&fields=title,feature_image,excerpt&key=` +
     (process.env.GHOST_KEY as string),
-    { next: { revalidate: 3600 } }
+    { cache: 'no-store' }
   ).then((res) => res.json())
  
   // optionally access and extend (rather than replace) parent metadata
@@ -49,7 +49,7 @@ export default async function Post({ params }: Props) {
     (process.env.GHOST_URL as string) +
     `/ghost/api/content/posts/slug/${params.slug}?key=` +
     (process.env.GHOST_KEY as string),
-    { next: { revalidate: 3600 } }
+    { cache: 'no-store' }
   ).then(res => res.json())
 
   return (
