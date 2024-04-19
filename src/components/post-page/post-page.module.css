@@ -14,8 +14,15 @@
       margin-bottom: 1.68rem;
     }
 
-    & > time{
-      color: var(--muted-color);
+    & > div {
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      
+      & time{
+        color: var(--muted-color);
+      }
     }
   }
 

@@ -3,6 +3,7 @@ import type Post from "@/types/post";
 import styles from './post-page.module.css'
 import { format } from 'date-fns'
 import Content from './content'
+import ShareButton from '@/components/share';
 
 export default function PostPage({ post }:{post:Post}){
 
@@ -13,7 +14,10 @@ export default function PostPage({ post }:{post:Post}){
     </div> : null}
     <div className={styles.header}>
       <h1>{post.title}</h1>
-      <time dateTime={post.published_at}>{format(post.published_at, 'PPP')}</time>
+      <div>
+        <time dateTime={post.published_at}>{format(post.published_at, 'PPP')}</time>
+        <ShareButton big={false} />
+      </div>
     </div>
     <Content content={post.html} />
   </article>

@@ -6,7 +6,7 @@ import styles from './share.module.css'
 import { useState } from "react"
 import isWebShareCompatible from "./isWebShareCompatible"
 
-export default function ShareButton(){
+export default function ShareButton({ big = true }:{ big?: boolean }){
 
   const [ isOpen, setOpen ] = useState(false)
   const onClose = () => {
@@ -27,9 +27,9 @@ export default function ShareButton(){
   }
 
   return <>
-    <button className={styles.shareButtonBig} onClick={onClick}>
+    <button className={big ? styles.shareButtonBig : styles.shareButtonSmall} onClick={onClick}>
       <span><ShareIcon /></span>
-      <span>Share</span>
+      {big ? <span>Share</span> : null}
     </button>
     {isOpen ? <SocialButtons onClose={onClose} /> : null }
   </>
