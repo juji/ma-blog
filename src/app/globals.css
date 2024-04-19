@@ -5,6 +5,7 @@
   --muted-color: hsla(0,0%,63%,1);
   --muted2-color: #bbb;
   --link-color: rgb(35, 189, 35);
+  --link-color-active: rgb(255, 189, 9);
 
   --content-width: 800px;
   --header-height: 4rem;
@@ -47,6 +48,10 @@ html, body {
 
 a{
   color: var(--link-color);
+}
+
+a:active{
+  color: var(--link-color-active);
 }
 
 pre{

@@ -1,7 +1,7 @@
-'use client'
+// 'use client'
 
-import { useMemo } from 'react'
-import { useRef } from 'react'
+// import { useMemo } from 'react'
+// import { useRef } from 'react'
 
 // repetition makes it more random
 const bg = [
@@ -34,15 +34,15 @@ function getColor(last: string|null) : string {
 
 export default function Footer({ className, children }: React.HTMLAttributes<HTMLElement>){
 
-  const lastColor = useRef<string|null>(null)
-  const color = useMemo(() => {
-    const col = getColor(lastColor.current)
-    return col
-  },[])
+  // const lastColor = useRef<string|null>(null)
+  // const color = useMemo(() => {
+  //   const col = getColor(lastColor.current)
+  //   return col
+  // },[])
 
   return <div 
     className={className}
-    style={{ background: color }}>
+    style={{ background: getColor(null) }}>
       {children}
     </div>
 

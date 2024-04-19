@@ -11,6 +11,7 @@ export default function Hero(){
       <span>that will help me</span>{' '}
       <span>with web development.</span><br />
       <span>I hope it can</span>{' '}<span>help you too. ;)</span></p>
+    <div className={styles.rainbow}></div>
   </div>
 
 }
