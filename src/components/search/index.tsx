@@ -1,6 +1,6 @@
 'use client'
 import { Command } from 'cmdk'
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect } from 'react'
 import { Search } from './icons'
 import UAParser from 'ua-parser-js'
 import styles from './search-button.module.css'
@@ -22,9 +22,10 @@ const CommandMenu = () => {
     return () => document.removeEventListener('keydown', down)
   }, [])
 
-  const isApple = useMemo(() => {
+  const [ isApple, setApple ] = useState<null|boolean>(null)
+  useEffect(() => {
     const parsed = (new UAParser()).getResult()
-    return parsed.device.vendor === 'Apple'
+    setApple(parsed.device.vendor === 'Apple')
   },[])
 
   const [ search, setSearch ] = useState('')
@@ -32,7 +33,7 @@ const CommandMenu = () => {
   return (<>
     <button className={styles.button} onClick={() => setOpen(true)}>
       <Search />
-      <span suppressHydrationWarning>{isApple ? '⌘+K' : 'ctrl+k'}</span>
+      <span>{typeof isApple !== 'boolean' ? null : isApple ? '⌘+K' : 'ctrl+k'}</span>
     </button>
     <Command.Dialog open={open} onOpenChange={setOpen} label="Search Blog Posts">
       <Command.Input 
