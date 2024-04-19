@@ -17,13 +17,11 @@ export const metadata: Metadata = {
 
 export default async function Home() {
 
-  const res = await fetch(
+  const data = await fetch(
     (process.env.GHOST_URL as string) +
     '/ghost/api/content/posts/?key=' +
     (process.env.GHOST_KEY as string)
-  )
-  const data = await res.json()
-
+  ).then(res => res.json())
 
   return (
     <main>
