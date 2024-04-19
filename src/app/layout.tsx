@@ -4,6 +4,7 @@ import { Work_Sans } from "next/font/google";
 import Header from "@/components/layout/header";
 import Main from "@/components/layout/main";
 import Footer from "@/components/layout/footer";
+import { Toaster } from 'react-hot-toast';
 
 import "./reset.css";
 import "./globals.css";
@@ -26,6 +27,16 @@ export default function RootLayout({
         <Header className="juji-header"/>
         <Main className="juji-main">{children}</Main>
         <Footer className="juji-footer" />
+        <Toaster 
+          toastOptions={{
+            style: {
+              background: '#212121',
+              color: '#fff',
+              padding: '1rem',
+              maxWidth: 'unset'
+            }
+          }}
+        />
       </body>
     </html>
   );

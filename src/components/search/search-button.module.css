@@ -1,0 +1,39 @@
+
+
+.button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 8px;
+  margin: 0;
+  text-align: center;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid #555;
+  color: white;
+  border-radius: 5px;
+  padding-right: 13px;
+
+  &:hover{
+    background-color: white;
+    color: black;
+  }
+
+  &:active{
+    background-color: #b0b0b0;
+  }
+
+  & > svg{
+    display: block;
+    margin: 0;
+    position: relative;
+  }
+
+  & > span{
+    display: none;
+    @media screen and (min-width: 640px){
+      display: block;
+    }
+  }
+}

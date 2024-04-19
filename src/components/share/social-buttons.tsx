@@ -14,6 +14,7 @@ import {
 
   WhatsAppShareBtn,
 } from "dv-social-share";
+import toast from 'react-hot-toast';
 
 
 type Meta = {
@@ -36,7 +37,7 @@ export function Buttons({ className }:{ className: string }){
   function copyUrl(){
     if(!meta) return
     navigator.clipboard.writeText(meta.url);
-    alert(meta.url + ' copied to clipboard');
+    toast(meta.url + ' copied to clipboard');
   }
 
   return meta ? <>
@@ -79,15 +80,6 @@ export function Buttons({ className }:{ className: string }){
         <ClipboardIcon />
       </button>
 
-
-      {/* <a className="a2a_button_x"></a>
-      <a className="a2a_button_threads"></a>
-      <a className="a2a_button_linkedin"></a>
-      <a className="a2a_button_reddit"></a>
-      <a className="a2a_button_skype"></a>
-      <a className="a2a_button_whatsapp"></a>
-      <a className="a2a_button_email"></a>
-      <a className="a2a_button_copy_link"></a> */}
     </div> 
   </> : null
 

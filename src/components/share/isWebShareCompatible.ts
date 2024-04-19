@@ -1,8 +1,10 @@
+'use client'
+
+import UAParser from 'ua-parser-js'
 
 function isDektopSafari(){
-  const uA = navigator.userAgent;
-  const vendor = navigator.vendor;
-  return /Safari/i.test(uA) && /Apple Computer/.test(vendor) && !/Mobi|Android/i.test(uA)
+  const parserResult = (new UAParser()).getResult()
+  return parserResult.browser.name === 'Safari'
 }
 
 export default function isWebShareCompatible(data: {

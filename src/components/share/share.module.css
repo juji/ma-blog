@@ -3,24 +3,22 @@
 
 .shareButtonSmall{
 
-  --button-bg-col: #93ff2a;
-
   border-radius: 50%;
-  border: 1px solid var(--button-bg-col);
+  border: 1px solid var(--link-color);
   width: 42px;
   height: 42px;
   font-size: 21px;
   background: transparent;
-  color: var(--button-bg-col);
+  color: var(--link-color);
   cursor: pointer;
 
   &:hover{
-    background: hsl(from var(--button-bg-col) h s calc(l + 0.05));
+    background-color: var(--link-color-hover);
     color: black;
   }
 
   &:active{
-    background: hsl(from var(--button-bg-col) h s calc(l - 0.1));
+    background-color: var(--link-color-active);
     color: black;
   }
 
@@ -31,34 +29,36 @@
   & > span{
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block;
     position: relative;
-    left: -1px
+    left: -1px;
+    
+    & > svg{
+      display: block;
+      margin: auto;
+    }
   }
 
 }
 
 .shareButtonBig{
-
-  --button-bg-col: #93ff2a;
   
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 8px 21px;
   border: 0;
-  background-color: var(--button-bg-col);
+  background-color: var(--link-color);
+  border-radius: 5px;
 
   cursor: pointer;
 
   &:hover{
-    background-color: hsl(from var(--button-bg-col) h s calc(l + 0.05))
+    background-color: var(--link-color-hover);
   }
 
   &:active{
-    background-color: hsl(from var(--button-bg-col) h s calc(l - 0.1))
+    background-color: var(--link-color-active);
   }
 }
 

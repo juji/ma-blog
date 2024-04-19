@@ -1,6 +1,7 @@
 
 import styles from './header.module.css'
 import Image from 'next/image'
+import Search from "@/components/search";
 
 export default function Header({ className }: React.HTMLAttributes<HTMLElement>){
 
@@ -13,7 +14,7 @@ export default function Header({ className }: React.HTMLAttributes<HTMLElement>)
             height={63.26752697064496} src="/logo.svg" />
         </a>
       </div>
-      <div>right</div>
+      <div><Search /></div>
     </div>
   </header>
 
