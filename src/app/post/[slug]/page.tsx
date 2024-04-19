@@ -4,16 +4,6 @@ import type { Metadata, ResolvingMetadata } from 'next'
 
 type Props = { params: { slug: string } }
 
-// export async function generateStaticParams() {
-//   const posts = await fetch(
-//     (process.env.GHOST_URL as string) +
-//     '/ghost/api/content/posts/?limit=all&fields=slug&key=' +
-//     (process.env.GHOST_KEY as string)
-//   ).then((res) => res.json()).then(r => r.posts)
- 
-//   return posts
-// }
-
 // export const revalidate = 3600
 
 export async function generateMetadata(
