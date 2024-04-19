@@ -14,14 +14,15 @@ export default function ShareButton(){
   }
 
   const onClick = () => {
-    if(isWebShareCompatible()){
 
-      navigator.share({
-        title: document.title,
-        text: document.querySelector("meta[name='description']")?.getAttribute("content") || '',
-        url: window.location.href
-      })
+    const shareData = {
+      title: document.title,
+      text: document.querySelector("meta[name='description']")?.getAttribute("content") || '',
+      url: window.location.href
+    }
 
+    if(isWebShareCompatible(shareData)){
+      navigator.share(shareData)
     } else setOpen(true)
   }
 
