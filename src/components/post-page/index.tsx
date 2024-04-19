@@ -13,7 +13,7 @@ export default function PostPage({ post }:{post:Post}){
       <h1>{post.title}</h1>
       <span>{format(post.published_at, 'PPP')}</span>
     </div>
-    <div>{parse(post.html)}</div>
+    <div suppressHydrationWarning>{parse(post.html)}</div>
   </article>
 
 }
