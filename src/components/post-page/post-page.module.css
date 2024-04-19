@@ -4,15 +4,14 @@
 
   & > .header {
 
-    display: flex;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    justify-content: space-between;
-    align-items: center;
 
     & > h1{
       font-size: 3rem;
       font-weight: bold;
+      line-height: 3.7rem;
+      margin-bottom: 1.68rem;
     }
 
     & > span{
