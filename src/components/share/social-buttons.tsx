@@ -1,0 +1,102 @@
+'use client'
+
+import styles from './social-buttons.module.css'
+import { useEffect, useState } from 'react'
+import { ClipboardIcon, MailIcon } from './icons'
+import { 
+  FBShareBtn,
+  TwitterShareBtn,
+  ThreadsShareBtn,
+
+  LinkedInShareBtn,
+  RedditShareBtn,
+  SkypeShareBtn,
+
+  WhatsAppShareBtn,
+} from "dv-social-share";
+
+
+type Meta = {
+  title: string,
+  description: string,
+  url: string
+}
+
+export function Buttons({ className }:{ className: string }){
+
+  const [ meta, setMeta ] = useState<Meta|null>(null)
+  useEffect(() => {
+    setMeta({
+      title: document.title,
+      description: document.querySelector("meta[name='description']")?.getAttribute("content") || '',
+      url: window.location.href
+    })
+  },[])
+
+  function copyUrl(){
+    if(!meta) return
+    navigator.clipboard.writeText(meta.url);
+    alert(meta.url + ' copied to clipboard');
+  }
+
+  return meta ? <>
+    <div className={`${className}`}>
+      <FBShareBtn
+        url={meta.url}
+        quote={meta.title}
+      />
+      <TwitterShareBtn
+        url={meta.url}
+        title={meta.title}
+      />
+      <ThreadsShareBtn
+        url={meta.url}
+        title={meta.title}
+      />
+      <LinkedInShareBtn
+        url={meta.url}
+        title={meta.title}
+      />
+      <RedditShareBtn
+        url={meta.url}
+        title={meta.title}
+      />
+      <SkypeShareBtn 
+        url={meta.url}
+        title={meta.title}
+      />
+      <WhatsAppShareBtn
+        url={meta.url}
+        title={meta.title}
+      />
+
+      <a href={`mailto:?body=${encodeURIComponent(meta.title)}%20${encodeURIComponent(meta.url)}`} 
+        target="_blank" rel="noreferer noopener" className={styles.custom}>
+        <MailIcon />
+      </a>
+
+      <button onClick={copyUrl} className={styles.custom}>
+        <ClipboardIcon />
+      </button>
+
+
+      {/* <a className="a2a_button_x"></a>
+      <a className="a2a_button_threads"></a>
+      <a className="a2a_button_linkedin"></a>
+      <a className="a2a_button_reddit"></a>
+      <a className="a2a_button_skype"></a>
+      <a className="a2a_button_whatsapp"></a>
+      <a className="a2a_button_email"></a>
+      <a className="a2a_button_copy_link"></a> */}
+    </div> 
+  </> : null
+
+}
+
+export default function SocialButtons({ onClose }: { onClose: () => void }){
+
+  return <div className={styles.socialButtons} onClick={onClose}>
+    <Buttons className={styles.buttons} />
+  </div>
+
+}

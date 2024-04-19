@@ -1,0 +1,28 @@
+
+
+.shareButtonSmall{
+  
+}
+
+.shareButtonBig{
+
+  --button-bg-col: rgb(255, 177, 42);
+  
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 21px;
+  border: 0;
+  background-color: var(--button-bg-col);
+
+  cursor: pointer;
+
+  &:hover{
+    background-color: hsl(from var(--button-bg-col) h s calc(l + 0.05))
+  }
+
+  &:active{
+    background-color: hsl(from var(--button-bg-col) h s calc(l - 0.1))
+  }
+}
+

@@ -11,6 +11,9 @@ dependencies:
   date-fns:
     specifier: ^3.6.0
     version: 3.6.0
+  dv-social-share:
+    specifier: ^0.0.7
+    version: 0.0.7(react@18.2.0)
   next:
     specifier: 14.2.2
     version: 14.2.2(react-dom@18.2.0)(react@18.2.0)
@@ -799,6 +802,15 @@ packages:
     dependencies:
       dom-serializer: 0.2.2
       domelementtype: 1.3.1
+    dev: false
+
+  /dv-social-share@0.0.7(react@18.2.0):
+    resolution: {integrity: sha512-ilFL+HrA14rwTsO71RqU0x/iPRAamongzIlQl/8BHyE4ccfZ5IqDlZMUFTSgtdhu4HNQ4mpaUi2W04sUXxl5cg==}
+    engines: {node: '>=14', npm: '>=6'}
+    peerDependencies:
+      react: '>=16.0.0'
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /eastasianwidth@0.2.0:

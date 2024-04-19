@@ -1,6 +1,7 @@
 import './content.css'
 import ReactHtmlParser from 'react-html-parser';
 import CodeHighlight from '@/components/code-highlight';
+import ShareButton from '../share';
 
 const render = (content: string) => {
   return ReactHtmlParser(content, {
@@ -18,7 +19,9 @@ const render = (content: string) => {
 export default function Content({ content }:{ content: string }){
 
   return <>
-      <div className='juji-post-content'>{render(content)}</div>
+    <div className='juji-post-content'>{render(content)}</div>
+    <br /><br />
+    <ShareButton />
   </>
 
 }
