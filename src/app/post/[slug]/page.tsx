@@ -17,7 +17,7 @@ export async function generateMetadata(
     `/ghost/api/content/posts/slug/${params.slug}?` +
     `&fields=title,feature_image,excerpt&key=` +
     (process.env.GHOST_KEY as string),
-    { cache: 'no-store' }
+    { next: { revalidate: 900 } }
   ).then((res) => res.json())
  
   // optionally access and extend (rather than replace) parent metadata
@@ -39,7 +39,7 @@ export default async function Post({ params }: Props) {
     (process.env.GHOST_URL as string) +
     `/ghost/api/content/posts/slug/${params.slug}?key=` +
     (process.env.GHOST_KEY as string),
-    { cache: 'no-store' }
+    { next: { revalidate: 900 } }
   ).then(res => res.json())
 
   return (

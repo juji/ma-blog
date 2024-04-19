@@ -19,7 +19,7 @@ export default async function Home() {
     (process.env.GHOST_URL as string) +
     '/ghost/api/content/posts/?key=' +
     (process.env.GHOST_KEY as string),
-    { cache: 'no-store' }
+    { next: { revalidate: 900 } }
   ).then(res => res.json())
 
   return (
