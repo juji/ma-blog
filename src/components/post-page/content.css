@@ -1,0 +1,28 @@
+.juji-post-content{
+
+  & img{
+    max-width: 100%;
+    height: auto;
+  }
+
+  & .kg-card {
+
+    &.kg-embed-card{
+      aspect-ratio: 16 / 9;
+      display: flex;
+      justify-content: center;
+
+      &.kg-card-hascaption{
+        flex-direction: column;
+        align-items: center;
+      }
+
+      & iframe {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+  }
+
+}

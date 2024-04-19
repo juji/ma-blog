@@ -6,11 +6,13 @@ import Link from 'next/link'
 export default function PostLink({ post }: { post: Post }){
 
   return <div className={styles.postlink}>
-    <Link href={`/post/${post.slug}`}>{post.title}</Link>
+    <a href={`/post/${post.slug}`}>{post.title}</a>
     <p>
       {post.excerpt.replace(/\n/g,' ').replace(/\ +/g,' ')}
     </p>
-    <div className={styles.publishAt}>{format(post.published_at, 'PPP')}</div>
+    <time 
+      dateTime={post.published_at} 
+      className={styles.publishAt}>{format(post.published_at, 'PPP')}</time>
   </div>
 
 }

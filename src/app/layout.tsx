@@ -8,7 +8,6 @@ import Footer from "@/components/layout/footer";
 import "./reset.css";
 import "./globals.css";
 
-
 const workSans = Work_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

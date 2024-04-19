@@ -1,7 +1,6 @@
 'use client'
 
 import { useMemo } from 'react'
-import { usePathname } from 'next/navigation'
 import { useRef } from 'react'
 
 // repetition makes it more random
@@ -35,16 +34,15 @@ function getColor(last: string|null) : string {
 
 export default function Footer({ className, children }: React.HTMLAttributes<HTMLElement>){
 
-  const pathname = usePathname()
   const lastColor = useRef<string|null>(null)
   const color = useMemo(() => {
     const col = getColor(lastColor.current)
     return col
-  },[ pathname ])
+  },[])
 
   return <div 
     className={className}
-    style={{background: color }}>
+    style={{ background: color }}>
       {children}
     </div>
 

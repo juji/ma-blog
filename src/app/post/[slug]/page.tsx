@@ -39,7 +39,7 @@ export default async function Post({ params }: Props) {
     (process.env.GHOST_URL as string) +
     `/ghost/api/content/posts/slug/${params.slug}?key=` +
     (process.env.GHOST_KEY as string),
-    { next: { revalidate: 900 } }
+    { next: { revalidate: 0 } }
   ).then(res => res.json())
 
   return (
