@@ -5,6 +5,7 @@ import Hero from "@/components/hero";
 import PostList from "@/components/post-list";
 // import CodeHighlight from '@/components/code-highlight';
 
+export const revalidate = 3600
 
 export const metadata: Metadata = {
   title: "Juji's Blog",

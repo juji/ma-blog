@@ -14,6 +14,8 @@ type Props = { params: { slug: string } }
 //   return posts
 // }
 
+export const revalidate = 3600
+
 export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
