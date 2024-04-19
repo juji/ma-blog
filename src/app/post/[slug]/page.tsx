@@ -44,13 +44,11 @@ export async function generateMetadata(
 
 export default async function Post({ params }: Props) {
 
-  const res = await fetch(
+  const data = await fetch(
     (process.env.GHOST_URL as string) +
     `/ghost/api/content/posts/slug/${params.slug}?key=` +
     (process.env.GHOST_KEY as string)
-  )
-  const data = (await res.json())
-
+  ).then(res => res.json())
 
   return (
     <main>
