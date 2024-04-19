@@ -23,6 +23,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* https://nextjs.org/docs/messages/react-hydration-error */}
+        <meta
+          name="format-detection"
+          content="telephone=no, date=no, email=no, address=no"
+        />
+      </head>
       <body className={workSans.className}>
         <Header className="juji-header"/>
         <Main className="juji-main">{children}</Main>

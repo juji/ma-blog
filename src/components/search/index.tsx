@@ -32,7 +32,7 @@ const CommandMenu = () => {
   return (<>
     <button className={styles.button} onClick={() => setOpen(true)}>
       <Search />
-      <span>{isApple ? '⌘+K' : 'ctrl+k'}</span>
+      <span suppressHydrationWarning>{isApple ? '⌘+K' : 'ctrl+k'}</span>
     </button>
     <Command.Dialog open={open} onOpenChange={setOpen} label="Search Blog Posts">
       <Command.Input 

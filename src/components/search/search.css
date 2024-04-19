@@ -33,7 +33,7 @@
   z-index: 202;
   background: linear-gradient(350deg, rgb(39 40 43) 13.72%, rgb(44 47 53) 74.3%);
   padding: 0.6rem;
-  border-radius: 5px;
+  border-radius: var(--border-radius);
 
   @media screen and (min-width: 640px){
     top: 10%;
