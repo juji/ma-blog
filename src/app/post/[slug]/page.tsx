@@ -26,7 +26,8 @@ export async function generateMetadata(
     (process.env.GHOST_URL as string) +
     `/ghost/api/content/posts/slug/${params.slug}?` +
     `&fields=title,feature_image,excerpt&key=` +
-    (process.env.GHOST_KEY as string)
+    (process.env.GHOST_KEY as string),
+    { next: { revalidate: 3600 } }
   ).then((res) => res.json())
  
   // optionally access and extend (rather than replace) parent metadata
@@ -47,13 +48,14 @@ export default async function Post({ params }: Props) {
   const data = await fetch(
     (process.env.GHOST_URL as string) +
     `/ghost/api/content/posts/slug/${params.slug}?key=` +
-    (process.env.GHOST_KEY as string)
+    (process.env.GHOST_KEY as string),
+    { next: { revalidate: 3600 } }
   ).then(res => res.json())
 
   return (
     <main>
       <PostPage post={data.posts[0]} />
-      <pre>{JSON.stringify(data,null,2)}</pre>
+      {/* <pre>{JSON.stringify(data,null,2)}</pre> */}
     </main>
   );
 }
