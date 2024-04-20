@@ -24,8 +24,8 @@ export async function create({
     }`,
     {
       input: {
-        repositoryId: process.env.GITHUB_REPO_ID,
-        categoryId: process.env.GITHUB_CATEGORY_ID,
+        repositoryId: process.env.NEXT_PUBLIC_GITHUB_REPO_ID,
+        categoryId: process.env.NEXT_PUBLIC_GITHUB_CATEGORY_ID,
         body: `Discussion for ${pathname}`,
         title: pathname,
         clientMutationId: CLIENT_MUTATION
@@ -62,6 +62,4 @@ export async function del( id: string ){
   )
 
   // console.log(response)
-  return response
-
-}
+  return}

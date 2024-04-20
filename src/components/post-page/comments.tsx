@@ -5,10 +5,10 @@ import Giscus from '@giscus/react';
 export default function Comments() {
   return (<div style={{paddingTop: '3rem'}}>
     <Giscus
-      repo={process.env.GITHUB_REPO as `${string}/${string}`}
-      repoId={process.env.GITHUB_REPO_ID as string}
-      category={process.env.GITHUB_CATEGORY}
-      categoryId={process.env.GITHUB_CATEGORY_ID}
+      repo={process.env.NEXT_PUBLIC_GITHUB_REPO as `${string}/${string}`}
+      repoId={process.env.NEXT_PUBLIC_GITHUB_REPO_ID as string}
+      category={process.env.NEXT_PUBLIC_GITHUB_CATEGORY}
+      categoryId={process.env.NEXT_PUBLIC_GITHUB_CATEGORY_ID}
       mapping="pathname"
       strict="1"
       reactionsEnabled="1"
