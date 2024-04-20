@@ -3,9 +3,9 @@ import type { Metadata } from 'next'
 
 import Hero from "@/components/hero";
 import PostList from "@/components/post-list";
-import CodeHighlight from '@/components/code-highlight';
+import getHome from '@/lib/content/ghost/home';
 
-import { GHOST_URL, GHOST_KEY } from '@/lib/constants'
+// import CodeHighlight from '@/components/code-highlight';
 
 export const metadata: Metadata = {
   title: "Juji's Blog",
@@ -17,19 +17,13 @@ export const metadata: Metadata = {
 
 export default async function Home() {
 
-  const data = await fetch(
-    (GHOST_URL as string) +
-    '/ghost/api/content/posts/?' + 
-    `&fields=title,slug,excerpt,published_at&key=` +
-    (GHOST_KEY as string),
-    { next: { revalidate: 900 } }
-  ).then(res => res.json())
+  const data = await getHome()
 
   return (
     <main>
       <Hero />
       <PostList posts={data.posts} />
-      <CodeHighlight lang="json">{JSON.stringify(data,null,2)}</CodeHighlight> 
+      {/* <CodeHighlight lang="json">{JSON.stringify(data,null,2)}</CodeHighlight>  */}
     </main>
   );
 }
