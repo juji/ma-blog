@@ -1,4 +1,6 @@
 
+export const BASE_URL = process.env.BASE_URL
+
 export const GHOST_URL = process.env.GHOST_URL
 export const GHOST_KEY = process.env.GHOST_KEY
 

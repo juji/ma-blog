@@ -7,7 +7,8 @@ type Post = {
   feature_image: string|null,
   featured: boolean,
   excerpt: string,
-  published_at: string
+  published_at: string,
+  updated_at: string
 }
 
 export default Post

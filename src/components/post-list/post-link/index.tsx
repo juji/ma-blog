@@ -1,7 +1,6 @@
 import type Post from '@/types/post'
 import styles from './postlink.module.css'
 import { format } from 'date-fns'
-import Link from 'next/link'
 
 export default function PostLink({ post }: { post: Post }){
 
