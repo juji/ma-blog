@@ -3,26 +3,23 @@
   & img{
     max-width: 100%;
     height: auto;
+    display: block;
+    margin: 21px auto; 
   }
 
-  & .kg-card {
+  & iframe {
+    display: block;
+    margin: 21px auto;
+  }
 
-    &.kg-embed-card{
-      aspect-ratio: 16 / 9;
-      display: flex;
-      justify-content: center;
+  & .ratio169{
+    aspect-ratio: 16 / 9;
+    width: 100%;
 
-      &.kg-card-hascaption{
-        flex-direction: column;
-        align-items: center;
-      }
-
-      & iframe {
-        width: 100%;
-        height: 100%;
-      }
+    &>*{
+      width: 100% !important;
+      height: 100% !important;
     }
-
   }
 
 }

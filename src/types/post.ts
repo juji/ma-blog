@@ -1,3 +1,4 @@
+// Ghost
 type Post = {
   id: string,
   uuid: string,

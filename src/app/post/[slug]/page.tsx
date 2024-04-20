@@ -1,7 +1,7 @@
 import type Post from "@/types/post";
 import PostPage from "@/components/post-page";
 import type { Metadata, ResolvingMetadata } from 'next'
-import { getMetadata, getContent } from "@/lib/content/ghost/post";
+import { getMetadata, getContent } from "@/lib/content/contentful/post";
 
 type Props = { params: { slug: string } }
 
@@ -9,22 +9,22 @@ type Props = { params: { slug: string } }
 
 export async function generateMetadata(
   { params }: Props,
-  parent: ResolvingMetadata
+  // parent: ResolvingMetadata
 ): Promise<Metadata> {
  
   // fetch data
   const data = await getMetadata(params.slug)
  
   // optionally access and extend (rather than replace) parent metadata
-  const previousImages = (await parent).openGraph?.images || []
+  // const previousImages = (await parent).openGraph?.images || []
  
   return {
-    title: data.posts[0].title,
-    description: data.posts[0].excerpt,
-    openGraph: {
-      images: data.posts[0].feature_image ? 
-        [data.posts[0].feature_image, ...previousImages] : previousImages,
-    },
+    title: data.fields.title as string,
+    description: data.fields.excerpt as string,
+    // openGraph: {
+    //   images: data.posts[0].feature_image ? 
+    //     [data.posts[0].feature_image, ...previousImages] : previousImages,
+    // },
   }
 }
 
@@ -34,7 +34,7 @@ export default async function Post({ params }: Props) {
 
   return (
     <main>
-      <PostPage post={data.posts[0]} />
+      <PostPage post={data} />
       {/* <pre>{JSON.stringify(data,null,2)}</pre> */}
     </main>
   );

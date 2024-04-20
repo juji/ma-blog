@@ -1,17 +1,21 @@
-import type Post from '@/types/post'
+import type { Entry } from "contentful";
 import styles from './postlink.module.css'
-import { format } from 'date-fns'
+import DateTime from '@/components/date-time'
 
-export default function PostLink({ post }: { post: Post }){
+export default function PostLink({ post }: { post: Entry }){
 
   return <div className={styles.postlink}>
-    <a href={`/post/${post.slug}`}>{post.title}</a>
+    
+    <a href={`/post/${post.fields.slug}`}>{post.fields.title as string}</a>
+    
     <p>
-      {post.excerpt.replace(/\n/g,' ').replace(/\ +/g,' ')}
+      {(post.fields.excerpt as string).replace(/\n/g,' ').replace(/\ +/g,' ')}
     </p>
-    <time 
-      dateTime={post.published_at} 
-      className={styles.publishAt}>{format(post.published_at, 'PPP')}</time>
+
+    <div className={styles.dateTime}>
+      <DateTime created={post.sys.createdAt} updated={post.sys.updatedAt} />
+    </div>
+
   </div>
 
 }

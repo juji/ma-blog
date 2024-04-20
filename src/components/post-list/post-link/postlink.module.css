@@ -29,7 +29,7 @@
     margin: 1rem 0rem;
   }
 
-  & .publishAt{
+  & .dateTime{
     font-size: 0.8rem;
     color: var(--muted-color);
   }

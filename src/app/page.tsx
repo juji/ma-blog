@@ -1,9 +1,10 @@
 
 import type { Metadata } from 'next'
 
+// import Post from '@/types/post';
 import Hero from "@/components/hero";
 import PostList from "@/components/post-list";
-import getHome from '@/lib/content/ghost/home';
+import getHome from '@/lib/content/contentful/home';
 
 // import CodeHighlight from '@/components/code-highlight';
 
@@ -22,7 +23,7 @@ export default async function Home() {
   return (
     <main>
       <Hero />
-      <PostList posts={data.posts} />
+      <PostList posts={data.items} />
       {/* <CodeHighlight lang="json">{JSON.stringify(data,null,2)}</CodeHighlight>  */}
     </main>
   );
