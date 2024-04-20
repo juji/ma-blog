@@ -1,7 +1,9 @@
+'use client'
+
 import Giscus from '@giscus/react';
 
-export default function MyApp() {
-  return (
+export default function Comments() {
+  return (<div style={{paddingTop: '3rem'}}>
     <Giscus
       repo={process.env.GITHUB_REPO as `${string}/${string}`}
       repoId={process.env.GITHUB_REPO_ID as string}
@@ -16,5 +18,5 @@ export default function MyApp() {
       lang="en"
       loading="lazy"
     />
-  );
+  </div>);
 }

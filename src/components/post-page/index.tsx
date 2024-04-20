@@ -4,6 +4,7 @@ import styles from './post-page.module.css'
 import { format } from 'date-fns'
 import Content from './content'
 import ShareButton from '@/components/share';
+import Comments from "./comments";
 
 export default function PostPage({ post }:{post:Post}){
 
@@ -20,6 +21,7 @@ export default function PostPage({ post }:{post:Post}){
       </div>
     </div>
     <Content content={post.html} />
+    <Comments />
   </article>
 
 }
