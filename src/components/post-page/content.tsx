@@ -18,10 +18,6 @@ const render = (content: string) => {
 
 export default function Content({ content }:{ content: string }){
 
-  return <>
-    <div className='juji-post-content'>{render(content)}</div>
-    <br /><br />
-    <ShareButton />
-  </>
+  return <div className='juji-post-content'>{render(content)}</div>
 
 }

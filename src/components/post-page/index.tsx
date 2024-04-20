@@ -21,6 +21,8 @@ export default function PostPage({ post }:{post:Post}){
       </div>
     </div>
     <Content content={post.html} />
+    <br /><br />
+    <ShareButton />
     <Comments />
   </article>
 
