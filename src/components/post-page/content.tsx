@@ -1,7 +1,6 @@
 import './content.css'
 import ReactHtmlParser from 'react-html-parser';
 import CodeHighlight from '@/components/code-highlight';
-import ShareButton from '@/components/share';
 
 const render = (content: string) => {
   return ReactHtmlParser(content, {
