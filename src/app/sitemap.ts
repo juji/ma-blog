@@ -1,7 +1,7 @@
 
 import type { MetadataRoute } from 'next'
 import type Post from '@/types/post'
-import { BASE_URL, GHOST_URL, GHOST_KEY } from '@/lib/constants'
+import { BASE_URL } from '@/lib/constants'
 import { getPageNum, getPages } from '@/lib/content/ghost/sitemap'
  
 export async function generateSitemaps() {
