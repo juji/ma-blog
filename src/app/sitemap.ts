@@ -19,7 +19,7 @@ export async function generateSitemaps() {
   const num = (data.meta.pagination.total + 1) < 50000 ? 1 : 
     Math.ceil((data.meta.pagination.total + 1) / 50000)
 
-  return new Array(num).map((v,i) => ({ id: i }))
+  return [ ...new Array(num) ].map((_,i) => ({ id: i }))
 }
  
 export default async function sitemap({
