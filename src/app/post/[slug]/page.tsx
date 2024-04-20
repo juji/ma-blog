@@ -1,6 +1,7 @@
 import type Post from "@/types/post";
 import PostPage from "@/components/post-page";
 import type { Metadata, ResolvingMetadata } from 'next'
+import { GHOST_URL, GHOST_KEY } from '@/lib/constants'
 
 type Props = { params: { slug: string } }
 
@@ -13,10 +14,10 @@ export async function generateMetadata(
  
   // fetch data
   const data = await fetch(
-    (process.env.GHOST_URL as string) +
+    (GHOST_URL as string) +
     `/ghost/api/content/posts/slug/${params.slug}?` +
     `&fields=title,feature_image,excerpt&key=` +
-    (process.env.GHOST_KEY as string),
+    (GHOST_KEY as string),
     { next: { revalidate: 900 } }
   ).then((res) => res.json())
  
@@ -36,9 +37,9 @@ export async function generateMetadata(
 export default async function Post({ params }: Props) {
 
   const data = await fetch(
-    (process.env.GHOST_URL as string) +
+    (GHOST_URL as string) +
     `/ghost/api/content/posts/slug/${params.slug}?key=` +
-    (process.env.GHOST_KEY as string),
+    (GHOST_KEY as string),
     { next: { revalidate: 900 } }
   ).then(res => res.json())
 

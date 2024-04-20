@@ -4,7 +4,7 @@ import { create, del } from './index'
 
 test('creating discussion', async () => {
 
-  // console.log('process.env.GITHUB_TOKEN', process.env.GITHUB_TOKEN);
+  // console.log('GITHUB_TOKEN', GITHUB_TOKEN);
 
   const discussion = await create({
     pathname: 'asdf/asdf/asdf'

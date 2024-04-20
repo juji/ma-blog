@@ -2,7 +2,14 @@
 import { graphql } from "@octokit/graphql"
 import { CreateDiscussionPayload } from "@octokit/graphql-schema"
 
+import {
+  NEXT_PUBLIC_GITHUB_REPO_ID,
+  NEXT_PUBLIC_GITHUB_CATEGORY_ID,
+  GITHUB_TOKEN,
+} from '@/lib/constants'
+
 const CLIENT_MUTATION = 'juji-blog'
+
 
 export async function create({ 
   pathname,
@@ -24,14 +31,14 @@ export async function create({
     }`,
     {
       input: {
-        repositoryId: process.env.NEXT_PUBLIC_GITHUB_REPO_ID,
-        categoryId: process.env.NEXT_PUBLIC_GITHUB_CATEGORY_ID,
+        repositoryId: NEXT_PUBLIC_GITHUB_REPO_ID,
+        categoryId: NEXT_PUBLIC_GITHUB_CATEGORY_ID,
         body: `Discussion for ${pathname}`,
         title: pathname,
         clientMutationId: CLIENT_MUTATION
       },
       headers: {
-        authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+        authorization: `Bearer ${GITHUB_TOKEN}`,
       }
     }
   )
@@ -56,7 +63,7 @@ export async function del( id: string ){
         clientMutationId: CLIENT_MUTATION
       },
       headers: {
-        authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+        authorization: `Bearer ${GITHUB_TOKEN}`,
       }
     }
   )

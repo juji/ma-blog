@@ -5,6 +5,8 @@ import Hero from "@/components/hero";
 import PostList from "@/components/post-list";
 // import CodeHighlight from '@/components/code-highlight';
 
+import { GHOST_URL, GHOST_KEY } from '@/lib/constants'
+
 export const metadata: Metadata = {
   title: "Juji's Blog",
   description: 'Just some notes that will help me with web development. I hope it can help you too. ;)',
@@ -16,9 +18,9 @@ export const metadata: Metadata = {
 export default async function Home() {
 
   const data = await fetch(
-    (process.env.GHOST_URL as string) +
+    (GHOST_URL as string) +
     '/ghost/api/content/posts/?key=' +
-    (process.env.GHOST_KEY as string),
+    (GHOST_KEY as string),
     { next: { revalidate: 900 } }
   ).then(res => res.json())
 
