@@ -23,7 +23,10 @@ type Meta = {
   url: string
 }
 
-export function Buttons({ className }:{ className: string }){
+export function Buttons(
+  { className, customClass }:
+  { customClass: string, className: string }
+){
 
   const [ meta, setMeta ] = useState<Meta|null>(null)
   useEffect(() => {
@@ -72,11 +75,11 @@ export function Buttons({ className }:{ className: string }){
       />
 
       <a href={`mailto:?body=${encodeURIComponent(meta.title)}%20${encodeURIComponent(meta.url)}`} 
-        target="_blank" rel="noreferer noopener" className={styles.custom}>
+        target="_blank" rel="noreferer noopener" className={customClass}>
         <MailIcon />
       </a>
 
-      <button onClick={copyUrl} className={styles.custom}>
+      <button onClick={copyUrl} className={customClass}>
         <ClipboardIcon />
       </button>
 
@@ -88,7 +91,7 @@ export function Buttons({ className }:{ className: string }){
 export default function SocialButtons({ onClose }: { onClose: () => void }){
 
   return <div className={styles.socialButtons} onClick={onClose}>
-    <Buttons className={styles.buttons} />
+    <Buttons className={styles.buttons} customClass={styles.custom} />
   </div>
 
 }

@@ -1,5 +1,61 @@
 
+.shareBlockElm {
 
+  display: grid;
+  grid-template-columns: 100%, repeat(8, auto);
+  grid-template-rows: 1fr 1fr;
+  gap: 8px;
+  width: auto;
+  border: 1px solid #393939;
+  border-radius: 5px;
+
+  &:before{
+    content: 'Share';
+    display: block;
+    grid-column-start: 1;
+    grid-column-end: 10;
+    width: 100%;
+    align-self: center;
+    justify-self: left;
+    border-bottom: 1px solid #393939;
+    padding: 0.8rem 1rem;
+  }
+
+  & button, & a{
+    align-self: center;
+    justify-self: center;
+  } 
+
+  & button {
+    padding: 0 !important;
+    margin: 0 !important;
+    transition: none !important;
+
+    &:hover{
+      transform: none !important;
+    }
+
+    & img{
+      mix-blend-mode: normal !important;
+    }
+  }
+
+  & button.custom, & a.custom{
+    width: 32px;
+    height: 32px;
+    background-color: transparent;
+    border: 0;
+    color: white;
+    padding: 0;
+
+    cursor: pointer;
+
+    & svg{
+      width: 32px;
+      height: auto;
+    }
+  }
+}
 
 .shareButtonSmall{
 
