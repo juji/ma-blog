@@ -5,12 +5,18 @@ import CodeHighlight from '@/components/code-highlight';
 const render = (content: string) => {
   return ReactHtmlParser(content, {
       transform: (node) => {
-          if (node.type === 'tag' && node.name === 'code' && node.children) {
-              return (
-                <CodeHighlight lang="js">{node.children[0].data}</CodeHighlight>
-              );
-          }
-          return undefined;
+        if (node.type === 'tag' && node.name === 'code' && node.children) {
+
+          const lang = (
+            node.attribs?.class ? 
+            node.attribs?.class.split('-').pop() : ''
+          ) as string
+
+          return (
+            <CodeHighlight lang={lang}>{node.children[0].data}</CodeHighlight>
+          );
+        }
+        return undefined;
       },
   });
 };
