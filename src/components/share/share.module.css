@@ -10,7 +10,7 @@
   border-radius: 5px;
 
   &:before{
-    content: 'Share';
+    content: 'Share Buttons';
     display: block;
     grid-column-start: 1;
     grid-column-end: 10;
@@ -18,6 +18,7 @@
     align-self: center;
     justify-self: left;
     border-bottom: 1px solid #393939;
+    background: #1c1c1c;
     padding: 0.8rem 1rem;
   }
 
