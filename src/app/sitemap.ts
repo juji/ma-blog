@@ -3,6 +3,13 @@ import { getPages } from '@/lib/content/contentful/sitemap'
 import type { Entry } from "contentful";
 import { BASE_URL } from '@/lib/constants'
 
+/*
+
+This is currently creating a max of 1000 page
+need to update when there are more pages than 1000
+
+*/
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const data = await getPages(0)
@@ -22,5 +29,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // @ts-ignore
   return pages
-  
+
 }
