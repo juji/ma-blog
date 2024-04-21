@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+Disallow: /draft/
+
+Sitemap: https://blog.jujiyangasli.com/sitemap.xml
