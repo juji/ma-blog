@@ -9,6 +9,16 @@ export default function Content({ content }:{ content: string }){
     className="juji-post-content" 
     rehypePlugins={[rehypeRaw]}
     components={{
+      a(props){
+        const {children, className, node, ...rest} = props
+
+        return <a {...rest} className={(className||'')} 
+          rel="noopener noreferrer"
+          target="_blank">
+          {children}
+        </a>
+
+      },
       code(props) {
         
         const {children, className, node, ...rest} = props

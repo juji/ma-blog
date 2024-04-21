@@ -5,7 +5,7 @@
   --muted-color: hsla(0,0%,63%,1);
   --muted2-color: #bbb;
   /* --link-color: rgb(35, 189, 35); */
-  --link-color: #93ff2a;
+  --link-color: #9de745;
   --link-color-hover: hsl(from var(--link-color) h s calc(l + 0.1));
   --link-color-active: hsl(from var(--link-color) h s calc(l - 0.12));
 
