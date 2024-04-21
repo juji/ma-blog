@@ -63,6 +63,27 @@
   height: auto;
 }
 
+[cmdk-empty]{
+  display: block;
+  text-align: center;
+  padding: 1rem;
+  color: #666;
+}
+
+[cmdk-loading]{
+  display: block;
+  text-align: center;
+  padding: 1rem;
+  color: #666;
+}
+
+[cmdk-list] {
+  height: var(--cmdk-list-height);
+  max-height: 500px;
+  transition: height 100ms ease;
+  scroll-padding-block-start: 8px;
+  scroll-padding-block-end: 8px;
+}
 
 [cmdk-item]{
   display: block;

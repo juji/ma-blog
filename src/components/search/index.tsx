@@ -30,13 +30,17 @@ const CommandMenu = () => {
   },[])
 
   const [ search, setSearch ] = useState('')
+  const [ loading, setLoading ] = useState(false)
+  const [ hasResult, setHasResult ] = useState(false)
   const [ searchResult, setSearchResult ] = useState<({} | undefined)[]|null>(null)
 
   async function doSearch( text: string ){
-
+    
+    setHasResult(false)
+    setLoading(true)
     const res = await searchText(text)
     console.log('search result', res)
-
+    setLoading(false)
     if(!res.hits.length) setSearchResult(null)
     else setSearchResult(res.hits)
 
@@ -45,7 +49,10 @@ const CommandMenu = () => {
   useEffect(() => {
 
     if(search) doSearch(search)
-    else setSearchResult(null)
+    else {
+      setHasResult(false)
+      setSearchResult(null)
+    }
 
   },[ search ])
 
@@ -54,12 +61,28 @@ const CommandMenu = () => {
       <Search />
       <span>{typeof isApple !== 'boolean' ? null : isApple ? '⌘+K' : 'ctrl+k'}</span>
     </button>
-    <Command.Dialog loop open={open} onOpenChange={setOpen} label="Search Blog Posts">
+    <Command.Dialog 
+      loop 
+      open={open}
+      // shouldFilter={false} 
+      filter={(value, search) => {
+        const v = JSON.parse(value)
+        let ret = 0
+        if (v.title.includes(search)) ret = 1
+        if (v.description.includes(search)) ret = 1
+        if(ret && !hasResult) setHasResult(true)
+        return ret
+      }}
+      onOpenChange={setOpen} label="Search Blog Posts">
       <Command.Input 
         autoFocus placeholder="Type to search posts..."
         value={search} onValueChange={(e) => setSearch(e)} />
+
+      {loading ? null : search ? <Command.Empty>No results found.</Command.Empty> : null}
+
       <Command.List>
-        {searchResult ? searchResult.map(v => {
+        {loading && <Command.Loading>Fetching words…</Command.Loading>}
+        {searchResult && searchResult.length ? searchResult.map(v => {
 
           // @ts-ignore
           const key = v.sys.id // @ts-ignore
@@ -69,18 +92,20 @@ const CommandMenu = () => {
 
           {/* @ts-ignore */}
           return <Command.Item 
-            onSelect={val => window.location.href = `/post/${val}`}
-            key={key} value={slug}>
+            onSelect={val => {
+              let d = JSON.parse(val)
+              window.location.href = `/post/${d.slug}`
+            }}
+            key={key} value={`${JSON.stringify({slug, title, description})}`}>
               <p className="result-title">{title}</p>
               <p className="result-desc">{description}</p>
           </Command.Item>
         }) : null}
-        {/* <Command.Empty>No results found.</Command.Empty> */}
       </Command.List>
 
-      { searchResult ? <div className="juji-cmdk-commands">
+      { hasResult ? <div className="juji-cmdk-commands">
         <span className='juji-cmdk-commands-inst'>
-          <code>↑</code> <code>↓</code> to select, and <code>enter</code> to go.
+          <code>↑</code> <code>↓</code> to select, and <code>Enter</code> to go.
         </span>
         <span className='juji-cmdk-commands-logo'>
           <a href="https://www.algolia.com/" target="_blank" rel="noopener noreferrer">
