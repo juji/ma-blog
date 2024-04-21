@@ -77,6 +77,17 @@ const CommandMenu = () => {
         }) : null}
         {/* <Command.Empty>No results found.</Command.Empty> */}
       </Command.List>
+
+      { searchResult ? <div className="juji-cmdk-commands">
+        <span className='juji-cmdk-commands-inst'>
+          <code>↑</code> <code>↓</code> to select, and <code>enter</code> to go.
+        </span>
+        <span className='juji-cmdk-commands-logo'>
+          <a href="https://www.algolia.com/" target="_blank" rel="noopener noreferrer">
+            <img src="/algolia.svg" alt="algolia" />
+          </a>
+        </span>
+      </div> : null}
     </Command.Dialog>
   </>)
 }
