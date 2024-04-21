@@ -1,4 +1,4 @@
-import type Post from "@/types/post";
+// import type Post from "@/types/post";
 import styles from './post-list.module.css'
 import PostLink from "./post-link";
 import type { Entry } from "contentful";

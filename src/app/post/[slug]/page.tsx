@@ -1,6 +1,6 @@
 import type Post from "@/types/post";
 import PostPage from "@/components/post-page";
-import type { Metadata, ResolvingMetadata } from 'next'
+import type { Metadata, /* ResolvingMetadata */ } from 'next'
 import { getMetadata, getContent } from "@/lib/content/contentful/post";
 
 type Props = { params: { slug: string } }
