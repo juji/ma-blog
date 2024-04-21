@@ -6,6 +6,9 @@ import Content from './content-markdown'
 import ShareButton from '@/components/share';
 import Comments from "./comments";
 import DateTime from '../date-time';
+import Tags from './tags';
+
+// import CodeHighlight from '@/components/code-highlight';
 
 export default function PostPage({ post }:{post: Entry}){
 
@@ -16,9 +19,12 @@ export default function PostPage({ post }:{post: Entry}){
       <img src={post.feature_image} alt={post.title} /> 
     </div> : null} */}
 
+    {/* <CodeHighlight lang='js'>{JSON.stringify(post,null,2)}</CodeHighlight> */}
+
     <div className={styles.header}>
       <h1>{post.fields.title as string}</h1>
-      <div>
+      <Tags className={styles.tags} post={post} />
+      <div className={styles.dateShare}>
         <span className={styles.dateTime}>
           <DateTime created={post.sys.createdAt} updated={post.sys.updatedAt} />
         </span>

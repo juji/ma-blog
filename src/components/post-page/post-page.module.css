@@ -14,17 +14,27 @@
       margin-bottom: 1.68rem;
     }
 
-    & > div {
+    & > .dateShare {
 
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-bottom: 4rem;
       
       & .dateTime{
         color: var(--muted-color);
         font-size: 0.9rem;
         margin-right: 1rem;
       }
+    }
+  }
+
+  & .tags {
+    margin-bottom: 1rem;
+
+    & > a {
+      margin-right: 8px;
+      display: inline-block;
     }
   }
 

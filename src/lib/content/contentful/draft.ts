@@ -2,7 +2,6 @@ import { getPreviewClient } from './client'
 
 export async function getMetadata( slug: string ){
 
-  // @ts-ignore
   return getPreviewClient().getEntries({
     'fields.slug' : slug,
     'content_type': 'post'
@@ -12,7 +11,6 @@ export async function getMetadata( slug: string ){
 
 export async function getContent( slug: string ){
   
-  // @ts-ignore
   return getPreviewClient().getEntries({
     'fields.slug' : slug,
     'content_type': 'post'

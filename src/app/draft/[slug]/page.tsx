@@ -21,7 +21,7 @@ export async function generateMetadata(
   // const previousImages = (await parent).openGraph?.images || []
  
   return {
-    title: data.fields.title as string,
+    title: data.fields.title as string + " | Juji's Blog",
     description: data.fields.excerpt as string,
     // openGraph: {
     //   images: data.posts[0].feature_image ? 
