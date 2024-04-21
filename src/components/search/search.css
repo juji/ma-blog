@@ -76,17 +76,15 @@
     border-bottom: none;
   }
 
-  & span{
+  & .result-title{
     display: block;
+    font-weight: bold;
+  }
 
-    &.result-title{
-      font-weight: bold;
-    }
-
-    &.result-desc{
-      font-size: 0.8rem;
-      color: var(--muted2-color);
-    }
+  & .result-desc{
+    display: block;
+    font-size: 0.8rem;
+    color: var(--muted2-color);
   }
 
   &:hover, &[data-selected=true]{
