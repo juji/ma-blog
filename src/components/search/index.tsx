@@ -71,8 +71,8 @@ const CommandMenu = () => {
           return <Command.Item 
             onSelect={val => window.location.href = `/post/${val}`}
             key={key} value={slug}>
-              <span className="result-title">{title}</span>
-              <span className="result-desc">{description}</span>
+              <p className="result-title">{title}</p>
+              <p className="result-desc">{description}</p>
           </Command.Item>
         }) : null}
         {/* <Command.Empty>No results found.</Command.Empty> */}
