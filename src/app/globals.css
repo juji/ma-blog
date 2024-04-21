@@ -9,7 +9,7 @@
   --link-color-hover: hsl(from var(--link-color) h s calc(l + 0.1));
   --link-color-active: hsl(from var(--link-color) h s calc(l - 0.12));
 
-  --content-width: 800px;
+  --content-width: 700px;
   --header-height: 4rem;
   --footer-height: 10rem;
   --pading-lr: 2rem;

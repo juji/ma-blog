@@ -34,6 +34,8 @@ export function getPreviewClient(){
     // Normally you get both ID and the token in the Contentful web app
     accessToken: CONTENTFUL_PREVIEW_API as string,
 
+    host: 'preview.contentful.com'
+
   })
 
 }

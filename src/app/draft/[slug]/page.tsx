@@ -1,7 +1,45 @@
+import type Post from "@/types/post";
+import PostPage from "@/components/post-page";
+import type { Metadata, /* ResolvingMetadata */ } from 'next'
+import { getMetadata, getContent } from "@/lib/content/contentful/draft";
+import { notFound } from 'next/navigation'
 
+type Props = { params: { slug: string } }
 
-export default function Draft(){
+// export const revalidate = 3600
 
-  return <p>Not Done</p>
-
+export async function generateMetadata(
+  { params }: Props,
+  // parent: ResolvingMetadata
+): Promise<Metadata> {
+ 
+  // fetch data
+  const data = await getMetadata(params.slug)
+  if(!data) notFound()
+ 
+  // optionally access and extend (rather than replace) parent metadata
+  // const previousImages = (await parent).openGraph?.images || []
+ 
+  return {
+    title: data.fields.title as string,
+    description: data.fields.excerpt as string,
+    // openGraph: {
+    //   images: data.posts[0].feature_image ? 
+    //     [data.posts[0].feature_image, ...previousImages] : previousImages,
+    // },
+  }
 }
+
+export default async function Post({ params }: Props) {
+
+  const data = await getContent( params.slug )
+  if(!data) notFound()
+
+  return (
+    <main>
+      <PostPage post={data} />
+      {/* <pre>{JSON.stringify(data,null,2)}</pre> */}
+    </main>
+  );
+}
+

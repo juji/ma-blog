@@ -1,5 +1,5 @@
 User-Agent: *
 Allow: /
-Disallow: /draft/
+Disallow: /draft/*
 
 Sitemap: https://blog.jujiyangasli.com/sitemap.xml

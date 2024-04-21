@@ -18,7 +18,7 @@ export default function Content({ content }:{ content: string }){
         return match && node && lang ? (
           <CodeHighlight lang={lang}>{children?.toString().trim()}</CodeHighlight>
         ) : (
-          <code {...rest} className={className}>
+          <code {...rest} className={(className||'')+' juji-code'}>
             {children}
           </code>
         )
