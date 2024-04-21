@@ -85,7 +85,7 @@
     color: var(--muted2-color);
   }
 
-  &:hover, &[data-selected=true]{
+  &[data-selected=true]{
     & .result-title{
       color: var(--link-color)
     }
