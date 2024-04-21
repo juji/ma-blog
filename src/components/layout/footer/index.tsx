@@ -17,9 +17,7 @@ export default function Footer({ className }: React.HTMLAttributes<HTMLElement>)
           </Link>
           <p>With{' '}
             <Link href="https://nextjs.org/" 
-              target="_blank" rel="noreferer noopener">Next.js</Link> and{' '}
-            <Link href="https://ghost.org/" 
-              target="_blank" rel="noreferer noopener">Ghost</Link></p>
+              target="_blank" rel="noreferer noopener">Next.js</Link></p>
         </div>
         <div className={styles.footerRight}>@ 2024</div>
       </div>
