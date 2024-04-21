@@ -109,7 +109,7 @@ const CommandMenu = () => {
         </span>
         <span className='juji-cmdk-commands-logo'>
           <a href="https://www.algolia.com/" target="_blank" rel="noopener noreferrer">
-            <img src="/algolia.svg" alt="algolia" />
+            <img src="/algolia.jpeg" alt="algolia" />
           </a>
         </span>
       </div> : null}
