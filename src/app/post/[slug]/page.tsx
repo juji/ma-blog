@@ -2,6 +2,7 @@ import type Post from "@/types/post";
 import PostPage from "@/components/post-page";
 import type { Metadata, /* ResolvingMetadata */ } from 'next'
 import { getMetadata, getContent } from "@/lib/content/contentful/post";
+import { notFound } from 'next/navigation'
 
 type Props = { params: { slug: string } }
 
@@ -14,6 +15,7 @@ export async function generateMetadata(
  
   // fetch data
   const data = await getMetadata(params.slug)
+  if(!data) notFound()
  
   // optionally access and extend (rather than replace) parent metadata
   // const previousImages = (await parent).openGraph?.images || []
@@ -31,6 +33,7 @@ export async function generateMetadata(
 export default async function Post({ params }: Props) {
 
   const data = await getContent( params.slug )
+  if(!data) notFound()
 
   return (
     <main>
