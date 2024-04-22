@@ -74,12 +74,12 @@ export function Buttons(
         title={meta.title}
       />
 
-      <a href={`mailto:?body=${encodeURIComponent(meta.title)}%20${encodeURIComponent(meta.url)}`} 
+      <a aria-label="Share by email" href={`mailto:?body=${encodeURIComponent(meta.title)}%20${encodeURIComponent(meta.url)}`} 
         target="_blank" rel="noreferer noopener" className={customClass}>
         <MailIcon />
       </a>
 
-      <button onClick={copyUrl} className={customClass}>
+      <button aria-label="Copy URL" onClick={copyUrl} className={customClass}>
         <ClipboardIcon />
       </button>
 

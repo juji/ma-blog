@@ -57,7 +57,7 @@ const CommandMenu = () => {
   },[ search ])
 
   return (<>
-    <button className={styles.button} onClick={() => setOpen(true)}>
+    <button className={styles.button} aria-label="Search" onClick={() => setOpen(true)}>
       <Search />
       <span>{typeof isApple !== 'boolean' ? null : isApple ? '⌘+K' : 'ctrl+k'}</span>
     </button>

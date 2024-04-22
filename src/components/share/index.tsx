@@ -38,7 +38,7 @@ export default function ShareButton({ big = true }:{ big?: boolean }){
 
   return <>
     { !data && big ? <Buttons className={styles.shareBlockElm} customClass={styles.custom} /> :
-      <button className={big ? styles.shareButtonBig : styles.shareButtonSmall} 
+      <button aria-label="Share this article" className={big ? styles.shareButtonBig : styles.shareButtonSmall} 
         onClick={onClick}>
         <span><ShareIcon /></span>
         {big ? <span>Share</span> : null}
