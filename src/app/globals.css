@@ -4,24 +4,70 @@
   --text-color: hsla(0,0%,83%,1);
   --muted-color: hsla(0,0%,63%,1);
   --muted2-color: #bbb;
-  /* --link-color: rgb(35, 189, 35); */
   --link-color: #9de745;
   --link-color-hover: hsl(from var(--link-color) h s calc(l + 0.1));
   --link-color-active: hsl(from var(--link-color) h s calc(l - 0.12));
+  --footer-bg: #fd8b02;
+  --footer-text-color: #000;
+  --header-bg: rgb(17 17 17 / 72%);
+  --border-bottom-color: #292929;
 
   --content-width: 700px;
   --header-height: 4rem;
   --footer-height: 10rem;
   --pading-lr: 2rem;
 
-  --footer-bg: #fd8b02;
-  --footer-text-color: #000;
-  --header-bg: rgb(17 17 17 / 72%);
 
-  --border-bottom: 1px solid #292929;
+  --border-bottom: 1px solid var(--border-bottom-color);
 
   --border-radius: 5px;
 
+}
+
+/* Prevent samsung and xiaomi browser from changing color */
+@media (prefers-color-scheme: dark) {
+  :root{
+    --bg-color: #161616;
+    --text-color: hsla(0,0%,83%,1);
+    --muted-color: hsla(0,0%,63%,1);
+    --muted2-color: #bbb;
+    --link-color: #9de745;
+    --link-color-hover: hsl(from var(--link-color) h s calc(l + 0.1));
+    --link-color-active: hsl(from var(--link-color) h s calc(l - 0.12));
+    --footer-bg: #fd8b02;
+    --footer-text-color: #000;
+    --header-bg: rgb(17 17 17 / 72%);
+    --border-bottom-color: #292929;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root{
+    --bg-color: #161616;
+    --text-color: hsla(0,0%,83%,1);
+    --muted-color: hsla(0,0%,63%,1);
+    --muted2-color: #bbb;
+    --link-color: #9de745;
+    --link-color-hover: hsl(from var(--link-color) h s calc(l + 0.1));
+    --link-color-active: hsl(from var(--link-color) h s calc(l - 0.12));
+    --footer-bg: #fd8b02;
+    --footer-text-color: #000;
+    --header-bg: rgb(17 17 17 / 72%);
+    --border-bottom-color: #292929;
+  }
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  /* background-color: rgba(0, 0, 0, 0); */
+}
+ 
+*::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0);
+}
+ 
+*::-webkit-scrollbar-thumb {
+  background-color: #333;
 }
 
 
