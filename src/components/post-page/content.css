@@ -1,11 +1,19 @@
 .juji-post-content{
 
-  p{
-    padding-bottom: 1.7rem;
+  --paragraph-padding: 1.7rem;
+
+  & p, & .juji-p-bottom {
+    padding-bottom: var(--paragraph-padding);
   }
 
-  h2{
+  & h2{
     font-size: 2rem;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+  }
+
+  & h3{
+    font-size: 1.7rem;
     padding-bottom: 1rem;
     padding-top: 1rem;
   }
@@ -14,21 +22,36 @@
     max-width: 100%;
     height: auto;
     display: block;
-    margin: 21px auto; 
+    margin: 0 auto; 
   }
 
   & iframe {
     display: block;
-    margin: 21px auto;
+    margin: 0 auto;
   }
 
-  & .ratio169{
+  & .juji-centered{
+    display: flex;
+    justify-content: center;
+  }
+
+  & .juji-grid{
+    display: grid;
+    grid-template-columns: repeat(var(--grid-column,2), 1fr);
+    gap: 1rem;
+    padding-bottom: var(--paragraph-padding);
+  }
+
+  & .juji-ratio169{
     aspect-ratio: 16 / 9;
     width: 100%;
+    padding-bottom: var(--paragraph-padding);
 
     &>*{
       width: 100% !important;
       height: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
     }
   }
 

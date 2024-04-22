@@ -14,7 +14,5 @@ export default function CodeHighlight({
   children
 } : CodeParams){
 
-  return <div style={{ margin: '2rem 0' }}>
-    <Code lang={lang} lineNumbers>{children}</Code>
-  </div>
+  return <Code lang={lang} lineNumbers>{children}</Code>
 }
