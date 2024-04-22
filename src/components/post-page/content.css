@@ -36,6 +36,14 @@
     margin: 0 auto;
   }
 
+  & figcaption{
+    padding-top: 0.3rem;
+    padding-bottom: var(--paragraph-padding);
+    font-size: 0.9rem;
+    text-align: center;
+    color: #b5b5b5;
+  }
+
   & .juji-centered{
     display: flex;
     justify-content: center;

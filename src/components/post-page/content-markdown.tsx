@@ -10,8 +10,17 @@ export default function Content({ content }:{ content: string }){
     rehypePlugins={[rehypeRaw]}
     components={{
       img(props){
-        const {children, className, node, ...rest} = props
-        return <img {...rest} className={className||''} loading="lazy"  />
+        const {children, node, alt, ...rest} = props
+
+        let caption = ''
+        if(alt?.match(/^caption\:/)){
+          caption = alt.replace(/^caption\:/,'')
+        }
+
+        return caption ? <figure suppressHydrationWarning>
+          <img {...rest} alt={caption} loading="lazy" />
+          <figcaption>{caption}</figcaption>
+        </figure> : <img {...rest} alt={alt} loading="lazy" />
       },
       a(props){
         const {children, className, node, ...rest} = props
