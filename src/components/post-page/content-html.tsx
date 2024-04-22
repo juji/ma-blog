@@ -1,6 +1,6 @@
 import './content.css'
 import ReactHtmlParser from 'react-html-parser';
-import CodeHighlight from '@/components/code-highlight';
+// import CodeHighlight from '@/components/code-highlight';
 
 const render = (content: string) => {
   return ReactHtmlParser(content, {
@@ -12,9 +12,11 @@ const render = (content: string) => {
             node.attribs?.class.split('-').pop() : ''
           ) as string
 
-          return (
-            <CodeHighlight lang={lang}>{node.children[0].data}</CodeHighlight>
-          );
+          return null
+
+          // return (
+          //   <CodeHighlight lang={lang}>{node.children[0].data}</CodeHighlight>
+          // );
         }
         return undefined;
       },

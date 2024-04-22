@@ -4,7 +4,8 @@ import UAParser from 'ua-parser-js'
 
 function isDektopSafari(){
   const parserResult = (new UAParser()).getResult()
-  return parserResult.browser.name === 'Safari'
+  return parserResult.browser.name === 'Safari' && 
+    parserResult.device.model === "Macintosh"
 }
 
 export default function isWebShareCompatible(data: {

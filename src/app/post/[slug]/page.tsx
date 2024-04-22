@@ -1,8 +1,10 @@
 import type Post from "@/types/post";
-import PostPage from "@/components/post-page";
 import type { Metadata, /* ResolvingMetadata */ } from 'next'
 import { getMetadata, getContent } from "@/lib/content/contentful/post";
 import { notFound } from 'next/navigation'
+
+import PostPage from "@/components/post-page";
+import Content from '@/components/post-page/content-markdown'
 
 type Props = { params: { slug: string } }
 
@@ -37,7 +39,9 @@ export default async function Post({ params }: Props) {
 
   return (
     <main>
-      <PostPage post={data} />
+      <PostPage post={data}>
+        <Content content={data.fields.content as string} />
+      </PostPage>
       {/* <pre>{JSON.stringify(data,null,2)}</pre> */}
     </main>
   );

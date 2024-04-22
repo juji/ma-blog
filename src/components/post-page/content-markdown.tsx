@@ -3,7 +3,13 @@ import Markdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
 import CodeHighlight from '../code-highlight'
 
-export default function Content({ content }:{ content: string }){
+let codeGroup: {
+  code: string,
+  lang: string,
+  title: string
+}[] = []
+
+export default function Content({ content }: { content: string }){
 
   return <Markdown 
     className="juji-post-content" 
@@ -35,16 +41,47 @@ export default function Content({ content }:{ content: string }){
       code(props) {
         
         const {children, className, node, ...rest} = props
-        const match = /language-(\w+)/.exec(className || '')
-        const lang = className && className.split('-').pop()
+        const match = className?.match(/^language-((([^\|\$]+)(\||\$))?([^\.]+(\.(.+))?))$/)
 
-        return match && node && lang ? (
-          <CodeHighlight lang={lang}>{children?.toString().trim()}</CodeHighlight>
-        ) : (
-          <code {...rest} className={(className||'')+' juji-code'}>
-            {children}
-          </code>
-        )
+        // this is a group
+        if ( match && match[4] ){
+          codeGroup.push({
+            code: children?.toString().trim() || '',
+            lang: match[7] || match[5],
+            title: match[5]
+          })
+          
+          // this is the last element
+          if(match[4] === '$') {
+            const props = [...codeGroup];
+            codeGroup = []
+            return <CodeHighlight subProps={props} />
+          }else{
+
+            // match[4] === '|'
+            return null
+          }
+        }
+
+        // this has title
+        else if(match && match[5] && match[7]){
+          return <CodeHighlight 
+              lang={match[7]} 
+              title={match[5]}
+            >{children?.toString().trim()}</CodeHighlight>
+        }
+
+        // this only has lang
+        else if(match && match[5]){
+          return <CodeHighlight 
+              lang={match[5]} 
+            >{children?.toString().trim()}</CodeHighlight>
+        }
+
+        else return <code {...rest} className={(className||'')+' juji-code'}>
+          {children}
+        </code>
+
       }
     }}
   >{content}</Markdown>

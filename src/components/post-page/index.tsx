@@ -1,16 +1,22 @@
 
+
 import type { Entry } from 'contentful'
 import styles from './post-page.module.css'
 // import Content from './content'
-import Content from './content-markdown'
+// import Content from './content-markdown'
+// import ContentMdx from './content-mdx'
 import ShareButton from '@/components/share';
 import Comments from "./comments";
 import DateTime from '../date-time';
 import Tags from './tags';
+import { PropsWithChildren } from 'react';
 
-// import CodeHighlight from '@/components/code-highlight';
-
-export default function PostPage({ post }:{post: Entry}){
+export default function PostPage({ 
+  post, 
+  children 
+}: PropsWithChildren<{
+  post: Entry
+}>){
 
   return <article className={styles.post}>
     
@@ -31,7 +37,7 @@ export default function PostPage({ post }:{post: Entry}){
         <ShareButton big={false} />
       </div>
     </div>
-    <Content content={post.fields.content as string} />
+    {children}
     <br /><br />
     <ShareButton />
     <Comments />
