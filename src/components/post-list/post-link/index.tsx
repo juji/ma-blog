@@ -13,7 +13,7 @@ export default function PostLink({ post }: { post: Entry }){
     </p>
 
     <div className={styles.dateTime}>
-      <DateTime created={post.sys.createdAt} updated={post.sys.updatedAt} />
+      <DateTime created={post.sys.createdAt} updated={post.fields.updatedAt as string} />
     </div>
 
   </div>

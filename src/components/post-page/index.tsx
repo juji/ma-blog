@@ -26,7 +26,7 @@ export default function PostPage({ post }:{post: Entry}){
       <Tags className={styles.tags} post={post} />
       <div className={styles.dateShare}>
         <span className={styles.dateTime}>
-          <DateTime created={post.sys.createdAt} updated={post.sys.updatedAt} />
+          <DateTime created={post.sys.createdAt} updated={post.fields.updatedAt as string} />
         </span>
         <ShareButton big={false} />
       </div>
