@@ -2,6 +2,12 @@
 
   --paragraph-padding: 1.7rem;
 
+  & [data-bright-theme]{
+    margin: 0 !important;
+    padding-top: 0;
+    padding-bottom: var(--paragraph-padding) !important;
+  }
+
   & p, & .juji-p-bottom {
     padding-bottom: var(--paragraph-padding);
   }
