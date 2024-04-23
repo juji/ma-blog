@@ -35,6 +35,9 @@ dependencies:
   dv-social-share:
     specifier: ^0.0.7
     version: 0.0.7(react@18.2.0)
+  katex:
+    specifier: ^0.16.10
+    version: 0.16.10
   next:
     specifier: 14.2.2
     version: 14.2.2(react-dom@18.2.0)(react@18.2.0)
@@ -50,6 +53,9 @@ dependencies:
   react-html-parser:
     specifier: ^2.0.2
     version: 2.0.2(react@18.2.0)
+  react-latex-next:
+    specifier: ^2.3.0
+    version: 2.3.0(react-dom@18.2.0)(react@18.2.0)
   react-markdown:
     specifier: ^9.0.1
     version: 9.0.1(@types/react@18.2.79)(react@18.2.0)
@@ -1816,6 +1822,11 @@ packages:
     resolution: {integrity: sha512-Fu4hJdvzeylCfQPp9SGWidpzrMs7tTrlu6Vb8XGaRGck8QSNZJJp538Wrb60Lax4fPwR64ViY468OIUTbRlGZg==}
     dev: false
 
+  /commander@8.3.0:
+    resolution: {integrity: sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==}
+    engines: {node: '>= 12'}
+    dev: false
+
   /concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
     dev: true
@@ -3272,6 +3283,20 @@ packages:
       object.values: 1.2.0
     dev: true
 
+  /katex@0.13.24:
+    resolution: {integrity: sha512-jZxYuKCma3VS5UuxOx/rFV1QyGSl3Uy/i0kTJF3HgQ5xMinCQVF8Zd4bMY/9aI9b9A2pjIBOsjSSm68ykTAr8w==}
+    hasBin: true
+    dependencies:
+      commander: 8.3.0
+    dev: false
+
+  /katex@0.16.10:
+    resolution: {integrity: sha512-ZiqaC04tp2O5utMsl2TEZTXxa6WSC4yo0fv5ML++D3QZv/vx2Mct0mTlRx3O+uUkjfuAgOkzsCmq5MiUEsDDdA==}
+    hasBin: true
+    dependencies:
+      commander: 8.3.0
+    dev: false
+
   /keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
     dependencies:
@@ -4113,6 +4138,18 @@ packages:
   /react-is@18.2.0:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
     dev: true
+
+  /react-latex-next@2.3.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-R6Q3fML5JHr7x50C22TIulsBBBz5dHefCbx1+rUQjjDnfAq3c3MbjNj1RGH8pOMV6UgAkrJyNHLTU3wOuIedQg==}
+    engines: {node: '>=8', npm: '>=5'}
+    peerDependencies:
+      react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      katex: 0.13.24
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
 
   /react-markdown@9.0.1(@types/react@18.2.79)(react@18.2.0):
     resolution: {integrity: sha512-186Gw/vF1uRkydbsOIkcGXw7aHq0sZOCRFFjGrr7b9+nVZg4UfA4enXCaxm4fUzecU38sWfrNDitGhshuU7rdg==}

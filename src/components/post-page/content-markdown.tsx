@@ -1,7 +1,9 @@
+import 'katex/dist/katex.min.css'
 import './content.css'
 import Markdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
 import CodeHighlight from '../code-highlight'
+import Latex from 'react-latex-next';
 
 let codeGroup: {
   code: string,
@@ -44,8 +46,15 @@ export default function Content({ content }: { content: string }){
         const {children, className, node, ...rest} = props
         const match = className?.match(/^language-((([^\|\$]+)(\||\$))?([^\.]+(\.(.+))?))$/)
 
+        // latex
+        if(match && match[1].toLowerCase() === 'latex'){
+          return <Latex>$$
+            {children?.toString().trim() as string}
+          $$</Latex>
+        }
+
         // this is a group
-        if ( match && match[4] ){
+        else if ( match && match[4] ){
           codeGroup.push({
             code: children?.toString().trim() || '',
             lang: match[7] || match[5],
@@ -79,9 +88,18 @@ export default function Content({ content }: { content: string }){
             >{children?.toString().trim()}</CodeHighlight>
         }
 
-        else return <code {...rest} className={(className||'')+' juji-code'}>
-          {children}
-        </code>
+        // inline
+        else {
+
+          const isLatex = children?.toString().trim().match(/^\$\$?[^$]+\$\$?$/)
+          if(isLatex){
+            return <Latex>{isLatex[0]}</Latex>
+          }
+
+          return <code {...rest} className={(className||'')+' juji-code'}>
+            {children}
+          </code>
+        }
 
       }
     }}
