@@ -44,7 +44,7 @@ export default function Content({ content }: { content: string }){
       code(props) {
         
         const {children, className, node, ...rest} = props
-        const match = className?.match(/^language-((([^\|\$]+)(\||\$))?([^\.]+(\.(.+))?))$/)
+        const match = className?.match(/^language-((([^\|\$]+)(\||\$))?(.+?(\.([^\.]+)$)?))$/)
 
         // latex
         if(match && match[1].toLowerCase() === 'latex'){
