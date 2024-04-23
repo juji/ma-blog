@@ -111,3 +111,7 @@ a:active{
 pre{
   font-family: monospace;
 }
+
+button{
+  cursor: pointer;
+}
