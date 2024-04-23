@@ -2,24 +2,35 @@
 .shareBlockElm {
 
   display: grid;
-  grid-template-columns: 100%, repeat(8, auto);
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 100%, repeat(3, auto);
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   gap: 8px;
-  width: auto;
   border: 1px solid #393939;
   border-radius: 5px;
+  margin: 0 auto;
+  width: auto;
+  max-width: 230px;
 
   &:before{
     content: 'Share Buttons';
     display: block;
     grid-column-start: 1;
-    grid-column-end: 10;
+    grid-column-end: 4;
     width: 100%;
     align-self: center;
     justify-self: left;
     border-bottom: 1px solid #393939;
     background: #1c1c1c;
     padding: 0.8rem 1rem;
+  }
+
+  @media screen and (min-width: 640px){
+    grid-template-columns: 100%, repeat(9, auto);
+    grid-template-rows: 1fr 1fr;
+    max-width: none;
+    &:before{
+      grid-column-end: 10;
+    }
   }
 
   & button, & a{
