@@ -119,14 +119,18 @@
   background-color: var(--link-color);
   border-radius: var(--border-radius);
 
+
   cursor: pointer;
+  color: black;
 
   &:hover{
     background-color: var(--link-color-hover);
+    color: black;
   }
 
   &:active{
     background-color: var(--link-color-active);
+    color: black;
   }
 }
 
