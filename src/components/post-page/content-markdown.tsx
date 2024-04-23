@@ -27,6 +27,7 @@ export default function Content({ content }: { content: string }){
           <img {...rest} alt={caption} loading="lazy" />
           <figcaption>{caption}</figcaption>
         </figure> : <img {...rest} alt={alt} loading="lazy" />
+        
       },
       a(props){
         const {children, className, node, ...rest} = props
