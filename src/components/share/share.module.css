@@ -78,7 +78,9 @@
   font-size: 21px;
   background: transparent;
   color: var(--link-color);
-  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &:hover{
     background-color: var(--link-color-hover);
@@ -89,10 +91,6 @@
     background-color: var(--link-color-active);
     color: black;
   }
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   & > span{
     margin: 0;
@@ -113,13 +111,13 @@
   
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   padding: 8px 21px;
   border: 0;
   background-color: var(--link-color);
   border-radius: var(--border-radius);
-
-
+  width: 100%;
   cursor: pointer;
   color: black;
 
@@ -131,6 +129,10 @@
   &:active{
     background-color: var(--link-color-active);
     color: black;
+  }
+
+  @media screen and (min-width: 640px){
+    width: auto;
   }
 }
 
