@@ -39,10 +39,10 @@ export default async function Post({ params }: Props) {
 
   return (
     <main>
+      {/* <pre>{JSON.stringify(data,null,2)}</pre> */}
       <PostPage post={data}>
         <Content content={data.fields.content as string} />
       </PostPage>
-      {/* <pre>{JSON.stringify(data,null,2)}</pre> */}
     </main>
   );
 }

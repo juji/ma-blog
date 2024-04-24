@@ -59,3 +59,16 @@ export async function getPost(slug: string){
   .then(entries => entries.items[0])
 
 }
+
+export async function getByTag(tag: string){
+
+  return await fetch(
+    ContentApi +
+    `/spaces/${CONTENTFUL_SPACE_ID}/environments/master/entries?` + 
+    `metadata.tags.sys.id[in]=${decodeURIComponent(tag)}&` +
+    `content_type=post&` +
+    `access_token=${CONTENTFUL_DELIVERY_API}`,
+    { next: { revalidate: 900 } }
+  ).then(res => res.json())
+
+}

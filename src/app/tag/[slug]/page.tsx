@@ -1,6 +1,7 @@
 import type Post from "@/types/post";
 import type { Metadata } from 'next'
-import { getByTag } from "@/lib/content/contentful/post";
+import { getByTag } from "@/lib/content/contentful/fetch";
+
 import { notFound } from 'next/navigation'
 import PostList from "@/components/post-list";
 
@@ -19,6 +20,8 @@ export default async function Post({ params }: Props) {
 
   const data = await getByTag( params.slug )
   if(!data) notFound()
+
+  console.log(data)
 
   return (
     <main>
