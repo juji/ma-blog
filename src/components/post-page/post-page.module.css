@@ -4,14 +4,22 @@
 
   & > .header {
 
-    margin-top: 2rem;
+    margin-top: 0rem;
     margin-bottom: 2rem;
+    
+    @media screen and (min-width:640px){
+      margin-top: 2rem;
+    }
 
     & > h1{
-      font-size: 3rem;
+      font-size: 2rem;
+      line-height: 1.4;
       font-weight: bold;
-      line-height: 3.7rem;
       margin-bottom: 1.68rem;
+
+      @media screen and (min-width:640px){
+        font-size: 3rem;
+      }
     }
 
     & > .dateShare {
