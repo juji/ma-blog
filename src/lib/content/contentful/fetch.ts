@@ -14,6 +14,7 @@ export async function getHome(skip = 0, limit = 10){
     ContentApi +
     `/spaces/${CONTENTFUL_SPACE_ID}/environments/master/entries?` + 
     `skip=${skip}&limit=${limit}&` +
+    `order=-sys.createdAt&` +
     `access_token=${CONTENTFUL_DELIVERY_API}`,
     { next: { revalidate: 900 } }
   ).then(res => res.json())  
@@ -26,6 +27,7 @@ export async function getDrafts(skip = 0, limit = 10){
     PreviewApi +
     `/spaces/${CONTENTFUL_SPACE_ID}/environments/master/entries?` + 
     `skip=${skip}&limit=${limit}&` +
+    `order=-sys.createdAt&` +
     `access_token=${CONTENTFUL_PREVIEW_API}`,
     { next: { revalidate: 900 } }
   ).then(res => res.json())
@@ -69,6 +71,7 @@ export async function getByTag(tag: string){
     `/spaces/${CONTENTFUL_SPACE_ID}/environments/master/entries?` + 
     `metadata.tags.sys.id[in]=${decodeURIComponent(tag)}&` +
     `content_type=post&` +
+    `order=-sys.createdAt&` +
     `access_token=${CONTENTFUL_DELIVERY_API}`,
     { next: { revalidate: 900 } }
   ).then(res => res.json())
