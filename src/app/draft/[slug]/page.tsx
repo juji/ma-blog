@@ -1,6 +1,6 @@
 import type Post from "@/types/post";
 import type { Metadata, /* ResolvingMetadata */ } from 'next'
-import { getMetadata, getContent } from "@/lib/content/contentful/draft";
+import { getDraft } from '@/lib/content/contentful/fetch'
 import { notFound } from 'next/navigation'
 
 import PostPage from "@/components/post-page";
@@ -16,7 +16,7 @@ export async function generateMetadata(
 ): Promise<Metadata> {
  
   // fetch data
-  const data = await getMetadata(params.slug)
+  const data = await getDraft(params.slug)
   if(!data) notFound()
  
   // optionally access and extend (rather than replace) parent metadata
@@ -34,7 +34,7 @@ export async function generateMetadata(
 
 export default async function Post({ params }: Props) {
 
-  const data = await getContent( params.slug )
+  const data = await getDraft( params.slug )
   if(!data) notFound()
 
   return (

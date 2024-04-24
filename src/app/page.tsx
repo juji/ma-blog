@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 // import Post from '@/types/post';
 import Hero from "@/components/hero";
 import PostList from "@/components/post-list";
-import getHome from '@/lib/content/contentful/home';
+import { getHome } from '@/lib/content/contentful/fetch'
 
 // import CodeHighlight from '@/components/code-highlight';
 

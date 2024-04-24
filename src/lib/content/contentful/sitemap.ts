@@ -1,4 +1,5 @@
-import { getDeliveryClient } from './client'
+
+import { getHome } from '@/lib/content/contentful/fetch';
 
 export async function getPageNum(){
 
@@ -28,11 +29,9 @@ export async function getPageNum(){
 // starts at zero
 export async function getPages(num: number){
 
-  return await await getDeliveryClient().getEntries({
-    skip: num * 1000,
-    limit: 1000,
-    // @ts-ignore
-    order: "-sys.createdAt"
-  })
+  return await await getHome(
+    num * 1000,
+    1000
+  )
 
 }

@@ -2,11 +2,17 @@ import type { Entry } from "contentful";
 import styles from './postlink.module.css'
 import DateTime from '@/components/date-time'
 
-export default function PostLink({ post }: { post: Entry }){
+export default function PostLink({ 
+  post,
+  prefix 
+}: { 
+  post: Entry 
+  prefix?: string
+}){
 
   return <div className={styles.postlink}>
     
-    <a href={`/post/${post.fields.slug}`}>{post.fields.title as string}</a>
+    <a href={`${prefix||'/post'}/${post.fields.slug}`}>{post.fields.title as string}</a>
     
     <p>
       {(post.fields.excerpt as string).replace(/\n/g,' ').replace(/\ +/g,' ')}

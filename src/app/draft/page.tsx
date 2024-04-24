@@ -2,11 +2,9 @@
 import type { Metadata } from 'next'
 
 // import Post from '@/types/post';
-import Hero from "@/components/hero";
+// import Hero from "@/components/hero";
 import PostList from "@/components/post-list";
-// import { getDrafts } from '@/lib/content/contentful/home';
-
-import { getDrafts } from '@/lib/content/contentful-fetch/client'
+import { getDrafts } from '@/lib/content/contentful/fetch'
 // import CodeHighlight from '@/components/code-highlight';
 
 export const metadata: Metadata = {
@@ -23,8 +21,12 @@ export default async function Home() {
 
   return (
     <main>
-      <h1>Drafts</h1>
-      <PostList posts={data.items} />
+      <h1 style={{
+        fontSize: '3rem', 
+        fontWeight: 'bold',
+        borderBottom: '1px solid grey'
+      }}>Drafts</h1>
+      <PostList posts={data.items} prefix={'/draft'} />
       {/* <CodeHighlight lang="json">{JSON.stringify(data,null,2)}</CodeHighlight>  */}
     </main>
   );
