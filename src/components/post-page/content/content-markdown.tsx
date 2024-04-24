@@ -2,9 +2,9 @@ import 'katex/dist/katex.min.css'
 import './content.css'
 import Markdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
-import CodeHighlight from '../code-highlight'
+import CodeHighlight from '../../code-highlight'
 import Latex from 'react-latex-next';
-import Zoom from './zoom'
+import Zoom from '../zoom'
 
 let codeGroup: {
   code: string,

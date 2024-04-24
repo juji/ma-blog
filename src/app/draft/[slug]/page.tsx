@@ -4,7 +4,7 @@ import { getMetadata, getContent } from "@/lib/content/contentful/draft";
 import { notFound } from 'next/navigation'
 
 import PostPage from "@/components/post-page";
-import Content from '@/components/post-page/content-markdown'
+import Content from '@/components/post-page/content/content-markdown'
 
 type Props = { params: { slug: string } }
 
