@@ -33,7 +33,7 @@ function Zoom({ src, alt, onClose }:ZoomParams){
             <button aria-label="zoom in" 
               onClick={() => zoomIn()}>+</button>
             <button aria-label="zoom out" 
-              onClick={() => zoomOut()}>-</button>
+              onClick={() => zoomOut()}>&minus;</button>
             <button aria-label="close zoom" 
               className={styles.red}
               onClick={onClose}>&times;</button>
