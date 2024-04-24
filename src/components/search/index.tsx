@@ -70,6 +70,8 @@ const CommandMenu = () => {
         let ret = 0
         if (v.title.includes(search)) ret = 1
         if (v.description.includes(search)) ret = 1
+        if (v.excerpt.includes(search)) ret = 1
+        if (v.tags.find((v: string) => v.includes(search))) ret = 1
         if(ret && !hasResult) setHasResult(true)
         return ret
       }}
@@ -84,21 +86,27 @@ const CommandMenu = () => {
         {loading && <Command.Loading>Fetching words…</Command.Loading>}
         {searchResult && searchResult.length ? searchResult.map(v => {
 
-          // @ts-ignore
-          const key = v.sys.id // @ts-ignore
-          const slug = v.fields.slug['en-US'] //@ts-ignore
-          const title = v.fields.title['en-US'] //@ts-ignore
-          const description = v.fields.description['en-US']
+          const data = {
+            // @ts-ignore
+            slug: v.fields.slug['en-US'], //@ts-ignore
+            title: v.fields.title['en-US'], //@ts-ignore
+            description: v.fields.description['en-US'], //@ts-ignore
+            excerpt: v.fields.excerpt['en-US'], //@ts-ignore
+            tags: v.metadata.tags.map(v => v.id),
+          }
 
+          // @ts-ignore
+          const key = v.sys.id 
+          
           {/* @ts-ignore */}
           return <Command.Item 
             onSelect={val => {
               let d = JSON.parse(val)
               window.location.href = `/post/${d.slug}`
             }}
-            key={key} value={`${JSON.stringify({slug, title, description})}`}>
-              <p className="result-title">{title}</p>
-              <p className="result-desc">{description}</p>
+            key={key} value={`${JSON.stringify(data)}`}>
+              <p className="result-title">{data.title}</p>
+              <p className="result-desc">{data.description}</p>
           </Command.Item>
         }) : null}
       </Command.List>
