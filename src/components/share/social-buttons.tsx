@@ -32,8 +32,10 @@ export function Buttons(
   useEffect(() => {
     setMeta({
       title: document.title,
-      description: document.querySelector("meta[name='description']")?.getAttribute("content") || '',
-      url: window.location.href
+      url: window.location.href,
+      description: document
+        .querySelector("meta[name='description']")
+        ?.getAttribute("content") || '',
     })
   },[])
 

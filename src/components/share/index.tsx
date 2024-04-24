@@ -16,8 +16,10 @@ export default function ShareButton({ big = true }:{ big?: boolean }){
   useEffect(() => {
     const shareData = {
       title: document.title,
-      text: document.querySelector("meta[name='description']")?.getAttribute("content") || '',
-      url: window.location.href
+      url: window.location.href,
+      text: document
+        .querySelector("meta[name='description']")
+        ?.getAttribute("content") || '',
     }
 
     if(isWebShareCompatible(shareData)){
@@ -38,7 +40,8 @@ export default function ShareButton({ big = true }:{ big?: boolean }){
 
   return <>
     { !data && big ? <Buttons className={styles.shareBlockElm} customClass={styles.custom} /> :
-      <button aria-label="Share this article" className={big ? styles.shareButtonBig : styles.shareButtonSmall} 
+      <button aria-label="Share this article" 
+        className={big ? styles.shareButtonBig : styles.shareButtonSmall} 
         onClick={onClick}>
         <span><ShareIcon /></span>
         {big ? <span>Share</span> : null}
