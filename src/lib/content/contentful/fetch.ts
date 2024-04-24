@@ -34,13 +34,15 @@ export async function getDrafts(skip = 0, limit = 10){
 
 export async function getDraft(slug: string){
 
+  // WARNING: doesn't cache much
+
   return await fetch(
     PreviewApi +
     `/spaces/${CONTENTFUL_SPACE_ID}/environments/master/entries?` + 
     `fields.slug=${decodeURIComponent(slug)}&` +
     `content_type=post&` +
     `access_token=${CONTENTFUL_PREVIEW_API}`,
-    { next: { revalidate: 900 } }
+    { next: { revalidate: 10 } }
   ).then(res => res.json())
   .then(entries => entries.items[0])
 
