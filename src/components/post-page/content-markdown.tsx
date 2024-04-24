@@ -4,6 +4,7 @@ import Markdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
 import CodeHighlight from '../code-highlight'
 import Latex from 'react-latex-next';
+import Zoom from './zoom'
 
 let codeGroup: {
   code: string,
@@ -18,17 +19,24 @@ export default function Content({ content }: { content: string }){
     rehypePlugins={[rehypeRaw]}
     components={{
       img(props){
-        const {children, node, alt, ...rest} = props
+        const {children, node, alt, src, ...rest} = props
+
+        const zoom = alt?.match(/^zoom\:/)
+        const title = alt?.replace(/^zoom\:/,'')
 
         let caption = ''
-        if(alt?.match(/^caption\:/)){
-          caption = alt.replace(/^caption\:/,'')
+        if(title?.match(/^caption\:/)){
+          caption = title.replace(/^caption\:/,'')
         }
 
-        return caption ? <figure suppressHydrationWarning>
-          <img {...rest} alt={caption} loading="lazy" />
+        return caption ? <figure>
+          { zoom ? <Zoom src={src} alt={caption} >
+            <img {...rest} src={src} alt={caption} loading="lazy" /></Zoom> : 
+            <img {...rest} src={src} alt={caption} loading="lazy" /> }
           <figcaption>{caption}</figcaption>
-        </figure> : <img {...rest} alt={alt} loading="lazy" />
+        </figure> : zoom ? <Zoom src={src} alt={title} >
+            <img {...rest} src={src} alt={title} loading="lazy" /></Zoom> : 
+            <img {...rest} src={src} alt={title} loading="lazy" />
         
       },
       a(props){
