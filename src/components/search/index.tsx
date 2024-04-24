@@ -92,7 +92,7 @@ const CommandMenu = () => {
             title: v.fields.title['en-US'], //@ts-ignore
             description: v.fields.description['en-US'], //@ts-ignore
             excerpt: v.fields.excerpt['en-US'], //@ts-ignore
-            tags: v.metadata.tags.map(v => v.id),
+            tags: v.metadata.tags.map(v => v.sys.id),
           }
 
           // @ts-ignore
