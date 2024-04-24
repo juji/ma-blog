@@ -28,6 +28,7 @@
     "react-html-parser": "^2.0.2",
     "react-latex-next": "^2.3.0",
     "react-markdown": "^9.0.1",
+    "react-zoom-pan-pinch": "^3.4.4",
     "rehype-raw": "^7.0.0",
     "ua-parser-js": "^1.0.37"
   },

@@ -5,6 +5,12 @@ import styles from './zoom.module.css'
 import { PropsWithChildren, useState, useEffect } from 'react'
 import { createPortal } from 'react-dom';
 
+import {
+  TransformWrapper,
+  TransformComponent,
+  useControls,
+} from "react-zoom-pan-pinch";
+
 type ZoomParams = {
   src: string | undefined,
   alt: string | undefined,
@@ -13,18 +19,29 @@ type ZoomParams = {
 
 function Zoom({ src, alt, onClose }:ZoomParams){
 
-  return <div className={styles.zoom}>
-    <div className={styles.zoomContent}>
-      <img src={src} alt={alt} />
-    </div>
-    <div className={styles.zoomTitle}>
-      <div className={styles.zoomTitleContent}>
-        <span>{alt}</span>
-        <button aria-label="close zoom" 
-          onClick={onClose}>&times;</button>
+  return <TransformWrapper centerOnInit={true}>
+    {({ zoomIn, zoomOut }) => (
+      <div className={styles.zoom}>
+        <div className={styles.zoomTitle}>
+          <p>{alt}</p>
+        </div>
+        <TransformComponent wrapperClass={styles.zoomContent}>
+          <img src={src} alt={alt} />
+        </TransformComponent>
+        <div className={styles.zoomControls}>
+          <div>
+            <button aria-label="zoom in" 
+              onClick={() => zoomIn()}>+</button>
+            <button aria-label="zoom out" 
+              onClick={() => zoomOut()}>-</button>
+            <button aria-label="close zoom" 
+              className={styles.red}
+              onClick={onClose}>&times;</button>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
+    )}
+  </TransformWrapper>
 
 }
 
