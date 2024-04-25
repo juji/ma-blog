@@ -5,14 +5,13 @@ import type { Metadata } from 'next'
 // import Hero from "@/components/hero";
 import PostList from "@/components/post-list";
 import { getDrafts } from '@/lib/content/contentful/fetch'
+import { openGraphImage } from '@/app/shared-metadata'
 // import CodeHighlight from '@/components/code-highlight';
 
 export const metadata: Metadata = {
   title: "Draft | Juji's Blog",
   description: 'Just some notes that will help me with web development. I hope it can help you too. ;)',
-  openGraph: {
-    images: [ 'https://jujiyangasli.com/images/juji-1200-630.jpeg' ]
-  }
+  openGraph: openGraphImage
 }
 
 export default async function Home() {

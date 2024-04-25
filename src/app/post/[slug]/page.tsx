@@ -2,7 +2,7 @@ import type Post from "@/types/post";
 import type { Metadata, /* ResolvingMetadata */ } from 'next'
 import { getPost } from "@/lib/content/contentful/fetch";
 import { notFound } from 'next/navigation'
-
+import { openGraphImage } from '@/app/shared-metadata'
 import PostPage from "@/components/post-page";
 import Content from '@/components/post-page/content/content-markdown'
 
@@ -25,10 +25,7 @@ export async function generateMetadata(
   return {
     title: data.fields.title as string + " | Juji's Blog",
     description: data.fields.excerpt as string,
-    // openGraph: {
-    //   images: data.posts[0].feature_image ? 
-    //     [data.posts[0].feature_image, ...previousImages] : previousImages,
-    // },
+    openGraph: openGraphImage,
   }
 }
 
