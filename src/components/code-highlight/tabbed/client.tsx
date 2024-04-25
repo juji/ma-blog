@@ -2,6 +2,7 @@
 
 import * as Tabs from "@radix-ui/react-tabs"
 import React, { PropsWithChildren } from "react"
+import styles from './clipboard/clipboard.module.css'
 
 export function TabsRoot({ children, defaultValue }: PropsWithChildren<{defaultValue: string | undefined}>) {
   return (
@@ -25,5 +26,5 @@ export function TabsList({ titles, children }: PropsWithChildren<{titles: (strin
 }
 
 export function TabsContent(props:any) {
-  return <Tabs.Content {...props} />
+  return <Tabs.Content {...props} className={styles.tabContent} />
 }

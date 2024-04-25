@@ -37,9 +37,9 @@ export default function RootLayout({
         <Toaster 
           toastOptions={{
             style: {
-              background: '#212121',
-              color: '#fff',
-              padding: '1rem',
+              background: '#99e500',
+              color: '#000000',
+              padding: '0.6rem 1rem',
               maxWidth: 'unset'
             }
           }}

@@ -1,0 +1,28 @@
+
+
+
+.tabContent{
+  position: relative;
+
+  .copyButton{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 5px;
+    border-radius: 3px;
+    background-color: rgb(124, 124, 124);
+    border: 0px solid transparent;
+    position: absolute;
+    top: 13px;
+    right: 13px;
+
+    &:hover{
+      background-color: rgb(152, 152, 152);
+    }
+
+    &:active{
+      background-color: rgb(82, 82, 82);
+    }
+  }
+}

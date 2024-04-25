@@ -2,6 +2,7 @@
 
 import { Code } from "bright"
 import { TabsRoot, TabsContent, TabsList } from "./client"
+import ClipboardButton from "./clipboard/clipboard-button"
 
 /** @type {import("bright").BrightProps["TitleBarContent"]} */
 function TitleBarComponent(brightProps) {
@@ -53,11 +54,16 @@ function Content(brightProps) {
   const propsList = subProps?.length
     ? subProps
     : [brightProps]
+
   return (
     <>
       {propsList.map((props) => (
         <TabsContent key={props.title} value={props.title}>
           <Code.Pre {...props} />
+          <ClipboardButton 
+            content={props.code}
+            popupText={`Copied: ${props.title}`}
+          />
         </TabsContent>
       ))}
     </>
