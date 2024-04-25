@@ -11,14 +11,14 @@
     align-items: center;
     padding: 5px 5px;
     border-radius: 3px;
-    background-color: rgb(124, 124, 124);
+    background-color: rgb(88, 88, 88);
     border: 0px solid transparent;
     position: absolute;
     top: 13px;
     right: 13px;
 
     &:hover{
-      background-color: rgb(152, 152, 152);
+      background-color: rgb(120, 120, 120);
     }
 
     &:active{
