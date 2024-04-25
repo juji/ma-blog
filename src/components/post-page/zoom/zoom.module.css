@@ -82,12 +82,14 @@
           grid-column-start: 4;
 
           &:hover{
-            background-color: hsl(from red h s calc(l + 0.12));
+            /* background-color: hsl(from red h s calc(l + 0.12)); */
+            background-color: color(srgb 1 0.24 0.24);
             color: white;
           }
     
           &:active{
-            background-color: hsl(from red h s calc(l - 0.12));
+            /* background-color: hsl(from red h s calc(l - 0.12)); */
+            background-color: color(srgb 0.76 0 0);
             color: white;
           } 
         }
