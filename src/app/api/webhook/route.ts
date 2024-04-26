@@ -1,5 +1,8 @@
 
-import { getPostById, getDraftById } from '@/lib/content/contentful/fetch'
+import { 
+  getPostById, 
+  getDraftById 
+} from '@/lib/content/contentful/fetch'
 import { revalidateTag } from 'next/cache';
 
 import { WEBHOOK_SECRET } from '@/lib/constants'; 
