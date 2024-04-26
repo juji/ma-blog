@@ -45,7 +45,7 @@ export async function POST(request: Request) {
     tags = data.metadata?.tags
 
   }
-
+  //
   // update all
   // since it's easier
   revalidateTag(`post/${slug}`)
