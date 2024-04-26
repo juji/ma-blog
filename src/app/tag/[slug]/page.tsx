@@ -21,8 +21,6 @@ export default async function Post({ params }: Props) {
   const data = await getByTag( params.slug )
   if(!data) notFound()
 
-  console.log(data)
-
   return (
     <main>
       <h1 style={{fontSize: '3rem'}}>#{params.slug}</h1>

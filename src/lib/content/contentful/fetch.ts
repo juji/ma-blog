@@ -16,7 +16,7 @@ export async function getHome(skip = 0, limit = 10){
     `skip=${skip}&limit=${limit}&` +
     `order=-sys.createdAt&` +
     `access_token=${CONTENTFUL_DELIVERY_API}`,
-    { next: { revalidate: 900 } }
+    { next: { tags: ["home"] } }
   ).then(res => res.json())  
 
 }
@@ -29,7 +29,7 @@ export async function getDrafts(skip = 0, limit = 10){
     `skip=${skip}&limit=${limit}&` +
     `order=-sys.createdAt&` +
     `access_token=${CONTENTFUL_PREVIEW_API}`,
-    { next: { revalidate: 900 } }
+    { next: { tags: ["draft"] } }
   ).then(res => res.json())
 
 }
@@ -44,7 +44,7 @@ export async function getDraft(slug: string){
     `fields.slug=${decodeURIComponent(slug)}&` +
     `content_type=post&` +
     `access_token=${CONTENTFUL_PREVIEW_API}`,
-    { next: { revalidate: 10 } }
+    { next: { tags: [`draft/${slug}`] } }
   ).then(res => res.json())
   .then(entries => entries.items[0])
 
@@ -58,7 +58,7 @@ export async function getPost(slug: string){
     `fields.slug=${decodeURIComponent(slug)}&` +
     `content_type=post&` +
     `access_token=${CONTENTFUL_DELIVERY_API}`,
-    { next: { revalidate: 900 } }
+    { next: { tags: [`post/${slug}`] } }
   ).then(res => res.json())
   .then(entries => entries.items[0])
 
@@ -73,7 +73,7 @@ export async function getByTag(tag: string){
     `content_type=post&` +
     `order=-sys.createdAt&` +
     `access_token=${CONTENTFUL_DELIVERY_API}`,
-    { next: { revalidate: 900 } }
+    { next: { tags: [`tag/${tag}`] } }
   ).then(res => res.json())
 
 }
