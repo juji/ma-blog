@@ -12,12 +12,12 @@ export default function ClipboardButton({
   popupText
 }:{ 
   content: string
-  popupText: string
+  popupText?: string
 }){
 
   function copyToCLipboard(){
     navigator.clipboard.writeText(content);
-    toast(popupText)
+    toast(popupText || 'Content copied')
   }
 
   return <button 

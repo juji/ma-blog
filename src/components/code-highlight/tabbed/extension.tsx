@@ -62,7 +62,7 @@ function Content(brightProps) {
           <Code.Pre {...props} />
           <ClipboardButton 
             content={props.code}
-            popupText={`Copied: ${props.title}`}
+            popupText={props.title}
           />
         </TabsContent>
       ))}
