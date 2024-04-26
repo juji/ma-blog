@@ -20,8 +20,10 @@ export async function POST(request: Request) {
 
   let slug = ''
   let tags:any[]|null = null
-  
-  if(!data.fields || !data.metadata){
+
+
+  // request content when it's not available
+  if(!data.fields?.slug || !data.metadata?.tags){
     
     // get full data from post || draft
     const [ post, draft ] = await Promise.all([
@@ -29,17 +31,17 @@ export async function POST(request: Request) {
       getDraftById(data.sys.id),
     ])
 
+    // draft will always have the content,
+    // but post sometimes not
     slug = post.fields?.slug || draft.fields?.slug
     tags = post.metadata?.tags || draft.metadata?.tags
 
   }else{
 
-    slug = data.fields?.slug
+    slug = data.fields?.slug['en-US']
     tags = data.metadata?.tags
 
   }
-
-  
 
   // update all
   // since it's easier
