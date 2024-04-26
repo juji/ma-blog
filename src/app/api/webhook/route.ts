@@ -11,6 +11,11 @@ export async function POST(request: Request) {
   // topic === 'ContentManagement.Entry.archive'
   // topic === 'ContentManagement.Entry.unarchive'
 
+  const secret = request.headers.get('X-JUJI-WEBHOOK')
+  if(
+    secret !== 'jhk3497947_++_][[];aslefkja978who49r9q344nf0-++:>eckvqewff8723'
+  ) return Response.error()
+
   const data = await request.json();
 
   // get full data from post || draft
