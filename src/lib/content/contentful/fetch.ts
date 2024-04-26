@@ -36,8 +36,6 @@ export async function getDrafts(skip = 0, limit = 10){
 
 export async function getDraft(slug: string){
 
-  // WARNING: doesn't cache much
-
   return await fetch(
     PreviewApi +
     `/spaces/${CONTENTFUL_SPACE_ID}/environments/master/entries?` + 
@@ -61,6 +59,28 @@ export async function getPost(slug: string){
     { next: { tags: [`post/${slug}`] } }
   ).then(res => res.json())
   .then(entries => entries.items[0])
+
+}
+
+export async function getDraftById(id: string){
+
+  return await fetch(
+    PreviewApi +
+    `/spaces/${CONTENTFUL_SPACE_ID}/environments/master/entries/${id}?` + 
+    `access_token=${CONTENTFUL_PREVIEW_API}`,
+    { cache: 'no-store' }
+  ).then(res => res.json())
+
+}
+
+export async function getPostById(id: string){
+
+  return await fetch(
+    ContentApi +
+    `/spaces/${CONTENTFUL_SPACE_ID}/environments/master/entries/${id}?` + 
+    `access_token=${CONTENTFUL_DELIVERY_API}`,
+    { cache: 'no-store' }
+  ).then(res => res.json())
 
 }
 
