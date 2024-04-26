@@ -1,7 +1,9 @@
 
 import { getPostById, getDraftById } from '@/lib/content/contentful/fetch'
 import { revalidateTag } from 'next/cache';
- 
+
+import { WEBHOOK_SECRET } from '@/lib/constants'; 
+
 export async function POST(request: Request) {
 
   // const topic = request.headers.get('X-Contentful-Topic')
@@ -12,9 +14,7 @@ export async function POST(request: Request) {
   // topic === 'ContentManagement.Entry.unarchive'
 
   const secret = request.headers.get('X-JUJI-WEBHOOK')
-  if(
-    secret !== 'jhk3497947_++_][[];aslefkja978who49r9q344nf0-++:>eckvqewff8723'
-  ) return Response.error()
+  if(secret !== WEBHOOK_SECRET) return Response.error()
 
   const data = await request.json();
 
