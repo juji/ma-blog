@@ -18,17 +18,31 @@ export async function POST(request: Request) {
 
   const data = await request.json();
 
-  // get full data from post || draft
-  const [ post, draft ] = await Promise.all([
-    getPostById(data.sys.id),
-    getDraftById(data.sys.id),
-  ])
+  let slug = ''
+  let tags:any[]|null = null
+  
+  if(!data.fields || !data.metadata){
+    
+    // get full data from post || draft
+    const [ post, draft ] = await Promise.all([
+      getPostById(data.sys.id),
+      getDraftById(data.sys.id),
+    ])
+
+    slug = post.fields?.slug || draft.fields?.slug
+    tags = post.metadata?.tags || draft.metadata?.tags
+
+  }else{
+
+    slug = data.fields?.slug
+    tags = data.metadata?.tags
+
+  }
+
+  
 
   // update all
   // since it's easier
-  const slug = post.fields?.slug || draft.fields?.slug
-  const tags = post.metadata?.tags || draft.metadata?.tags
-
   revalidateTag(`post/${slug}`)
   revalidateTag(`draft/${slug}`)
   revalidateTag(`home`)
