@@ -57,9 +57,9 @@ const CommandMenu = () => {
   },[ search ])
 
   return (<>
-    <button className={styles.button} gtm-search-btn="true" aria-label="Search" onClick={() => setOpen(true)}>
+    <button className={styles.button} aria-label="Search" onClick={() => setOpen(true)}>
       <Search />
-      <span>{typeof isApple !== 'boolean' ? null : isApple ? '⌘+K' : 'ctrl+k'}</span>
+      <span gtm-search-btn="true">{typeof isApple !== 'boolean' ? null : isApple ? '⌘+K' : 'ctrl+k'}</span>
     </button>
     <Command.Dialog 
       loop 
@@ -105,10 +105,8 @@ const CommandMenu = () => {
               window.location.href = `/post/${d.slug}`
             }}
             key={key} value={`${JSON.stringify(data)}`}>
-              <div gtm-search-result="true">
-                <p className="result-title">{data.title}</p>
-                <p className="result-desc">{data.description}</p>
-              </div>
+              <p gtm-search-result="true" className="result-title">{data.title}</p>
+              <p gtm-search-result="true" className="result-desc">{data.description}</p>
           </Command.Item>
         }) : null}
       </Command.List>
