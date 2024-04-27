@@ -105,8 +105,10 @@ const CommandMenu = () => {
               window.location.href = `/post/${d.slug}`
             }}
             key={key} value={`${JSON.stringify(data)}`}>
-              <p gtm-search-result="true" className="result-title">{data.title}</p>
-              <p gtm-search-result="true" className="result-desc">{data.description}</p>
+              <div gtm-search-result="true">
+                <p className="result-title">{data.title}</p>
+                <p className="result-desc">{data.description}</p>
+              </div>
           </Command.Item>
         }) : null}
       </Command.List>
