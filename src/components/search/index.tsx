@@ -57,7 +57,7 @@ const CommandMenu = () => {
   },[ search ])
 
   return (<>
-    <button className={styles.button} aria-label="Search" onClick={() => setOpen(true)}>
+    <button className={styles.button} gtm-search-btn aria-label="Search" onClick={() => setOpen(true)}>
       <Search />
       <span>{typeof isApple !== 'boolean' ? null : isApple ? '⌘+K' : 'ctrl+k'}</span>
     </button>
@@ -99,7 +99,8 @@ const CommandMenu = () => {
           const key = v.sys.id 
           
           {/* @ts-ignore */}
-          return <Command.Item 
+          return <Command.Item
+            gtm-search-result 
             onSelect={val => {
               let d = JSON.parse(val)
               window.location.href = `/post/${d.slug}`
