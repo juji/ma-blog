@@ -100,14 +100,13 @@ const CommandMenu = () => {
           
           {/* @ts-ignore */}
           return <Command.Item
-            gtm-search-result="true"
             onSelect={val => {
               let d = JSON.parse(val)
               window.location.href = `/post/${d.slug}`
             }}
             key={key} value={`${JSON.stringify(data)}`}>
-              <p className="result-title">{data.title}</p>
-              <p className="result-desc">{data.description}</p>
+              <p gtm-search-result="true" className="result-title">{data.title}</p>
+              <p gtm-search-result="true" className="result-desc">{data.description}</p>
           </Command.Item>
         }) : null}
       </Command.List>
