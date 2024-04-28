@@ -57,7 +57,8 @@ const CommandMenu = () => {
   },[ search ])
 
   return (<>
-    <button className={styles.button} aria-label="Search" onClick={() => setOpen(true)}>
+    <button gtm-search-btn="true" 
+      className={styles.button} aria-label="Search" onClick={() => setOpen(true)}>
       <Search />
       <span gtm-search-btn="true">{typeof isApple !== 'boolean' ? null : isApple ? '⌘+K' : 'ctrl+k'}</span>
     </button>
