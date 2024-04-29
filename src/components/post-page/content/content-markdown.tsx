@@ -96,6 +96,11 @@ export default function Content({ content }: { content: string }){
             >{children?.toString().trim()}</CodeHighlight>
         }
 
+        // just draw the thing
+        else if(children?.toString().trim().match(/\r|\n/g)){
+          return <CodeHighlight>{children?.toString().trim()}</CodeHighlight>
+        }
+
         // inline
         else {
 
