@@ -15,7 +15,7 @@ export default function PostLink({
     <a href={`${prefix||'/post'}/${post.fields.slug}`}>{post.fields.title as string}</a>
     
     <p>
-      {(post.fields.excerpt as string).replace(/\n/g,' ').replace(/\ +/g,' ')}
+      {((post.fields.excerpt as string)||'').replace(/\n/g,' ').replace(/\ +/g,' ')}
     </p>
 
     <div className={styles.dateTime}>
