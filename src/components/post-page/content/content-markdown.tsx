@@ -2,9 +2,20 @@ import 'katex/dist/katex.min.css'
 import './content.css'
 import Markdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
-import CodeHighlight from '../../code-highlight'
 import Latex from 'react-latex-next';
 import Zoom from '../zoom'
+import remarkGfm from 'remark-gfm'
+
+import CodeHighlight from '../../code-highlight'
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableFooter,
+  TableHead,
+  TableRow,
+  TableCell,
+} from '../table'
 
 let codeGroup: {
   code: string,
@@ -15,9 +26,40 @@ let codeGroup: {
 export default function Content({ content }: { content: string }){
 
   return <Markdown 
-    className="juji-post-content" 
+    className="juji-post-content"
+    remarkPlugins={[remarkGfm]}
     rehypePlugins={[rehypeRaw]}
     components={{
+      table(props){
+        const {children, node, ...rest} = props
+        return <Table {...rest}>{children}</Table>
+      },
+
+      thead(props){
+        const { children, node, ...rest } = props
+        return <TableHeader {...rest}>{children}</TableHeader>
+      },
+
+      tr(props){
+        const { children, node, ...rest } = props
+        return <TableRow {...rest}>{children}</TableRow>
+      },
+
+      th(props){
+        const { children, node, ...rest } = props
+        return <TableHead {...rest}>{children}</TableHead>
+      },
+
+      tbody(props){
+        const { children, node, ...rest } = props
+        return <TableBody {...rest}>{children}</TableBody>
+      },
+
+      td(props){
+        const { children, node, ...rest } = props
+        return <TableCell {...rest}>{children}</TableCell>
+      },
+      
       img(props){
         const {children, node, alt, src, ...rest} = props
 
@@ -53,18 +95,19 @@ export default function Content({ content }: { content: string }){
         
         const {children, className, node, ...rest} = props
         const match = className?.match(/^language-((([^\|\$]+)(\||\$))?(.+?(\.([^\.]+)$)?))$/)
+        const trimmed = children?.toString().trim() as string
 
         // latex
         if(match && match[1].toLowerCase() === 'latex'){
           return <Latex>$$
-            {children?.toString().trim() as string}
+            {trimmed}
           $$</Latex>
         }
 
         // this is a group
         else if ( match && match[4] ){
           codeGroup.push({
-            code: children?.toString().trim() || '',
+            code: trimmed || '',
             lang: match[7] || match[5],
             title: match[5]
           })
@@ -86,25 +129,25 @@ export default function Content({ content }: { content: string }){
           return <CodeHighlight 
               lang={match[7]} 
               title={match[5]}
-            >{children?.toString().trim()}</CodeHighlight>
+            >{trimmed}</CodeHighlight>
         }
 
         // this only has lang
         else if(match && match[5]){
           return <CodeHighlight 
               lang={match[5]} 
-            >{children?.toString().trim()}</CodeHighlight>
+            >{trimmed}</CodeHighlight>
         }
 
         // just draw the thing
-        else if(children?.toString().trim().match(/\r|\n/g)){
-          return <CodeHighlight>{children?.toString().trim()}</CodeHighlight>
+        else if(trimmed.match(/\r|\n/g)){
+          return <CodeHighlight>{trimmed}</CodeHighlight>
         }
 
         // inline
         else {
 
-          const isLatex = children?.toString().trim().match(/^\$\$?[^$]+\$\$?$/)
+          const isLatex = trimmed.match(/^\$\$?[^$]+\$\$?$/)
           if(isLatex){
             return <Latex>{isLatex[0]}</Latex>
           }

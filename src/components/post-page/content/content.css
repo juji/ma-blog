@@ -2,6 +2,8 @@
 
   --paragraph-margin: 1.7rem;
 
+  max-width: 100%;
+
   & [data-bright-theme]{
     margin: 0 !important;
     padding-top: 0;
@@ -52,6 +54,37 @@
     color: #b5b5b5;
   }
 
+  & ul, & ol {
+    & > li {
+      margin-left: 1.5rem;
+    }
+  }
+
+  & ol > li {
+    list-style: decimal;
+  }
+
+  & ul > li {
+    list-style: disc;
+  }
+
+  & table{
+    margin-bottom: var(--paragraph-margin);
+  }
+
+  & th{
+    font-size: 1rem;
+  }
+
+  & blockquote {
+    padding-left: 1rem;
+    border-left: 3px solid grey;
+  }
+
+  & hr{
+    margin-bottom: var(--paragraph-margin);
+  }
+
   & .juji-centered{
     display: flex;
     justify-content: center;
@@ -86,7 +119,7 @@
     background-color: #333;
     padding: 2px 4px;
     border-radius: 3px;
-    color: rgb(255, 166, 0);
+    color: rgb(0 195 132);
     font-family: 'Courier New', Courier, monospace;
   }
 
