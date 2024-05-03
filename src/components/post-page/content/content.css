@@ -55,6 +55,7 @@
   }
 
   & ul, & ol {
+    margin-bottom: var(--paragraph-margin);
     & > li {
       margin-left: 1.5rem;
     }
@@ -78,7 +79,10 @@
 
   & blockquote {
     padding-left: 1rem;
-    border-left: 3px solid grey;
+    padding-right: 1rem;
+    font-size: 0.9rem;
+    border-left: 3px solid rgb(81, 81, 81);
+    font-style: italic;
   }
 
   & hr{
