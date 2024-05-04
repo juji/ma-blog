@@ -9,7 +9,7 @@ import { WEBHOOK_SECRET } from '@/lib/constants';
 
 export async function POST(request: Request) {
 
-  // const topic = request.headers.get('X-Contentful-Topic')
+  const topic = request.headers.get('X-Contentful-Topic')
   // topic === 'ContentManagement.Entry.publish'
   // topic === 'ContentManagement.Entry.unpublish'
   // topic === 'ContentManagement.Entry.auto_save'
@@ -19,11 +19,12 @@ export async function POST(request: Request) {
   const secret = request.headers.get('X-JUJI-WEBHOOK')
   if(secret !== WEBHOOK_SECRET) return Response.error()
 
+    
   const data = await request.json();
 
   let slug = ''
   let tags:any[]|null = null
-
+  let publishedAt = data.sys.publishedAt 
 
   // request content when it's not available
   if(!data.fields?.slug || !data.metadata?.tags){
@@ -45,13 +46,24 @@ export async function POST(request: Request) {
     tags = data.metadata?.tags
 
   }
-  //
-  // update all
+
+  if(
+    topic === 'ContentManagement.Entry.unpublish' ||
+    topic === 'ContentManagement.Entry.publish'
+  ){
+    revalidateTag(`post/${slug}`)
+    revalidateTag(`home`)
+  }
+
+  if(
+    topic === 'ContentManagement.Entry.auto_save'
+  ){
+    revalidateTag(`draft/${slug}`)
+    revalidateTag(`draft`)
+  }
+
+  // update  all
   // since it's easier
-  revalidateTag(`post/${slug}`)
-  revalidateTag(`draft/${slug}`)
-  revalidateTag(`home`)
-  revalidateTag(`draft`)
   tags && tags.forEach((tag:any) => {
     revalidateTag(`tag/${tag.sys.id}`)
   });
