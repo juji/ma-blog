@@ -13,8 +13,6 @@ export async function POST(request: Request) {
   // topic === 'ContentManagement.Entry.publish'
   // topic === 'ContentManagement.Entry.unpublish'
   // topic === 'ContentManagement.Entry.auto_save'
-  // topic === 'ContentManagement.Entry.archive'
-  // topic === 'ContentManagement.Entry.unarchive'
 
   const secret = request.headers.get('X-JUJI-WEBHOOK')
   if(secret !== WEBHOOK_SECRET) return Response.error()
@@ -50,8 +48,16 @@ export async function POST(request: Request) {
     topic === 'ContentManagement.Entry.unpublish' ||
     topic === 'ContentManagement.Entry.publish'
   ){
+
+    // revalidate the pages
     revalidateTag(`post/${slug}`)
     revalidateTag(`home`)
+
+    // and the tag
+    tags && tags.forEach((tag:any) => {
+      revalidateTag(`tag/${tag.sys.id}`)
+    });
+    
   }
 
   if(
@@ -60,12 +66,6 @@ export async function POST(request: Request) {
     revalidateTag(`draft/${slug}`)
     revalidateTag(`draft`)
   }
-
-  // update  all
-  // since it's easier
-  tags && tags.forEach((tag:any) => {
-    revalidateTag(`tag/${tag.sys.id}`)
-  });
 
   return Response.json({ ok: true })
 
