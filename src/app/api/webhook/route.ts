@@ -24,7 +24,6 @@ export async function POST(request: Request) {
 
   let slug = ''
   let tags:any[]|null = null
-  let publishedAt = data.sys.publishedAt 
 
   // request content when it's not available
   if(!data.fields?.slug || !data.metadata?.tags){
