@@ -96,7 +96,7 @@ export default function Content({ content }: { content: string }){
         
         const {children, className, node, ...rest} = props
         const match = className?.match(/^language-((([^\|\$]+)(\||\$))?(.+?(\.([^\.]+)$)?))$/)
-        const trimmed = children?.toString().trim() as string
+        const trimmed = children?.toString().trim().replace(/\t/g,' ') as string
 
         // latex
         if(match && match[1].toLowerCase() === 'latex'){
