@@ -78,7 +78,7 @@ export function BranchLine({
     {branch.branch ? <div className={`${open?styles.jujiTreeOpen:''} ${styles.jujiTreeContent}`}>
       <div className={styles.jujiTreeContenInner}>
       {branch.branch.map((v,k) => {
-        return <BranchLine key={`${parent}${k}`} branch={v} pk={`${parent}${k}`} />
+        return <BranchLine key={`${pk}${k}`} branch={v} pk={`${pk}${k}`} />
       })}
       </div>
     </div> : null }
