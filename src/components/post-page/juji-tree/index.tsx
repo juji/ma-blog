@@ -54,7 +54,13 @@ const createTree = (string: string) => {
   return tree
 }
 
-export function BranchLine({ branch }:{ branch: Branch }){
+export function BranchLine({ 
+  branch,
+  pk
+}:{ 
+  branch: Branch 
+  pk: string
+}){
 
   const [ open, setOpen ] = useState(branch.open)
 
@@ -71,8 +77,8 @@ export function BranchLine({ branch }:{ branch: Branch }){
 
     {branch.branch ? <div className={`${open?styles.jujiTreeOpen:''} ${styles.jujiTreeContent}`}>
       <div className={styles.jujiTreeContenInner}>
-      {branch.branch.map(v => {
-        return <BranchLine branch={v} />
+      {branch.branch.map((v,k) => {
+        return <BranchLine key={`${parent}${k}`} branch={v} pk={`${parent}${k}`} />
       })}
       </div>
     </div> : null }
@@ -92,7 +98,7 @@ export default function Tree({
   const tree = createTree(content)
 
   return <div className={`${className} ${styles.jujiTree}`}>
-    {tree.map(v => <BranchLine branch={v} />)}
+    {tree.map((v,k) => <BranchLine key={`${k}`} pk={k+''} branch={v} />)}
   </div>
 
 }
