@@ -6,12 +6,13 @@ import Latex from 'react-latex-next';
 import Zoom from '../zoom'
 import remarkGfm from 'remark-gfm'
 
-import CodeHighlight from '../../code-highlight'
+import CodeHighlight from '../code-highlight'
+import Tree from '../juji-tree'
 import {
   Table,
   TableHeader,
   TableBody,
-  TableFooter,
+  // TableFooter,
   TableHead,
   TableRow,
   TableCell,
@@ -102,6 +103,10 @@ export default function Content({ content }: { content: string }){
           return <Latex>$$
             {trimmed}
           $$</Latex>
+        }
+
+        if(match && match[1].toLowerCase() === 'juji-tree'){
+          return <Tree content={trimmed} className='juji-tree' />
         }
 
         // this is a group
