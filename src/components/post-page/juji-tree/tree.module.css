@@ -1,0 +1,82 @@
+
+
+.tree{
+
+  & .line{
+
+    font-size: 1rem;
+    padding: 2px 0;
+    padding-left: 1rem;
+
+    &>button, &>div{
+      
+      display: flex;
+      align-items: center;
+
+      &>span{
+        display: flex;
+        align-items: center;
+
+        &:first-child{
+          margin-right: 0.5em;
+        }
+      }
+    }
+
+    &>button{
+
+      background: none;
+      color: inherit;
+      border: none;
+      padding: 0;
+      font: inherit;
+      cursor: pointer;
+      outline: inherit;
+
+      &:hover{
+        color: #51c200
+      }
+    }
+
+    & > .content{
+
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 200ms ease-out, margin-bottom 200ms ease-out;
+      position: relative;
+      margin-bottom: 0px;
+
+      &::before{
+        content: '';
+        position: absolute;
+        left: 2px;
+        height: 100%;
+        top: 0;
+        border-left: 1px solid #4e4e4e;
+      }
+
+      &::after{
+        content: '';
+        position: absolute;
+        left: 2px;
+        bottom: 0;
+        width: 8px;
+        border-bottom: 1px solid #4e4e4e;
+      }
+
+      /* border-left: 1px solid #4e4e4e; */
+      overflow: hidden;
+      
+      &.open{
+        grid-template-rows: 1fr;
+        margin-bottom: 3px;
+      }
+
+
+      & .inner{ overflow: hidden; }
+    }
+
+
+  }
+  
+}

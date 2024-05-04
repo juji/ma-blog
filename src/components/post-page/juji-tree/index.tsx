@@ -1,17 +1,6 @@
 'use client'
 
-import styles from './index.module.css'
-import { useState } from 'react'
-
-type Branch = {
-  text: string
-  open?: boolean | undefined | null
-  dir?: boolean | undefined | null
-  extension?: string | undefined | null
-  branch?: Tree
-}
-
-type Tree = Branch[]
+import { TreeStructure, type Tree } from './tree'
 
 const getBranchAtDepth = (n:number, currentTree: Tree): Tree => {
   if(!n) return currentTree
@@ -43,10 +32,10 @@ const createTree = (string: string) => {
       const treeAtDepth = getBranchAtDepth(depth, tree)
       
       treeAtDepth.push({
-        text, 
+        ext,
+        text,
         dir: isOpenDir || isCloseDir,
         open: isOpenDir,
-        extension: ext
       })
 
     })
@@ -54,51 +43,14 @@ const createTree = (string: string) => {
   return tree
 }
 
-export function BranchLine({ 
-  branch,
-  pk
-}:{ 
-  branch: Branch 
-  pk: string
-}){
-
-  const [ open, setOpen ] = useState(branch.open)
-
-  return <div 
-  className={`
-    ${open ? styles.jujiTreeOpen : ''} 
-    ${styles.jujiTreeLine}
-  `.replace(/\n|\r/g,' ').replace(/\s+/g,' ')}>
-
-    {branch.dir ? <button onClick={() => setOpen(!open)}>
-      <span>{open ? '+' : '-'}</span>
-      <span>{branch.text}</span>
-    </button> : <span>{branch.text}</span>}
-
-    {branch.branch ? <div className={`${open?styles.jujiTreeOpen:''} ${styles.jujiTreeContent}`}>
-      <div className={styles.jujiTreeContenInner}>
-      {branch.branch.map((v,k) => {
-        return <BranchLine key={`BranchLine${pk}${k}`} branch={v} pk={`${pk}${k}`} />
-      })}
-      </div>
-    </div> : null }
-
-  </div>
-
-}
-
-export default function Tree({ 
+export default function TreeElm({ 
   content,
   className
 }:{ 
   content: string 
   className: string
 }){
-
   const tree = createTree(content)
 
-  return <div className={`${className} ${styles.jujiTree}`}>
-    {tree.map((v,k) => <BranchLine key={`BranchLine${k}`} pk={k+''} branch={v} />)}
-  </div>
-
+  return <TreeStructure className={className} tree={tree} />
 }

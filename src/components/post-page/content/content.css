@@ -86,6 +86,9 @@
   }
 
   .juji-tree{
+    padding: 1.3rem 1rem;
+    border: 1px solid #3f3f3f;
+    border-radius: 5px;
     margin-bottom: var(--paragraph-margin);
   }
 
