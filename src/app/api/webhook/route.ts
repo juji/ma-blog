@@ -57,7 +57,7 @@ export async function POST(request: Request) {
     tags && tags.forEach((tag:any) => {
       revalidateTag(`tag/${tag.sys.id}`)
     });
-    
+
   }
 
   if(

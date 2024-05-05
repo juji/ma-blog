@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "vitest",
-    "tunnel": "ssh -R jujiblog:80:localhost:3000 serveo.net"
+    "tunnel": "echo 'use serveo, or cloudflare https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/get-started/create-remote-tunnel/'"
   },
   "dependencies": {
     "@giscus/react": "^3.0.0",
