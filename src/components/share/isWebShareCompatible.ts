@@ -2,7 +2,7 @@
 
 import UAParser from 'ua-parser-js'
 
-function isDektopSafari(){
+function isDektopMac(){
   const parserResult = (new UAParser()).getResult()
   return parserResult.device.model === "Macintosh" &&
     parserResult.browser.name !== 'Edge'
@@ -14,5 +14,7 @@ export default function isWebShareCompatible(data: {
   text: string,
   url: string
 }){
-  return !isDektopSafari() && navigator?.canShare && navigator?.canShare(data)
+  return !isDektopMac() && 
+    navigator?.canShare && 
+    navigator?.canShare(data)
 }
