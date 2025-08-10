@@ -21,3 +21,4 @@ export const NEXT_PUBLIC_ALGOLIA_INDEX = process.env.NEXT_PUBLIC_ALGOLIA_INDEX
 
 
 export const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET
+export const CRON_SECRET = 'kaszjdhfa7e8w4hf78qw4hf70q8934bfq3w084fbhq3o48w799hf'
