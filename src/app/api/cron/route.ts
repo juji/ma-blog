@@ -21,8 +21,9 @@ export async function GET(request: Request) {
       "Referer": "https://blog.jujiyangasli.com/"
     },
     "body": "{\"query\":\"css\",\"hitsPerPage\":5}",
-    "method": "POST"
-  });
+    "method": "POST",
+    cache: "force-cache"
+  } as any);
 
   const resp = await f.json();
   return Response.json({ ok: resp.hits.length > 0, data: resp.hits });  

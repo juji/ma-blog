@@ -15,12 +15,12 @@ need to update when there are more pages than 1000
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const data = await getPages(0)
-  const pages = data.items.map((post:Entry) => ({
+  const pages = data?.items?.map((post:Entry) => ({
     url: `${BASE_URL}/post/${post.fields.slug}`,
     lastModified: new Date(post.sys.updatedAt),
     changeFrequency: "daily",
     priority: 0.8
-  }))
+  })) || []
 
   pages.unshift({
     url: `${BASE_URL}`,

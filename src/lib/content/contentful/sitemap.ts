@@ -29,7 +29,7 @@ export async function getPageNum(){
 // starts at zero
 export async function getPages(num: number){
 
-  return await await getHome(
+  return await getHome(
     num * 1000,
     1000
   )

@@ -6,18 +6,19 @@ import { openGraphImage } from '@/app/shared-metadata'
 import PostPage from "@/components/post-page";
 import Content from '@/components/post-page/content/content-markdown'
 
-type Props = { params: { slug: string } }
+type Props = { params: Promise<{ slug: string }> }
 
-// export const revalidate = 3600
+ // export const revalidate = 3600
 
-export async function generateMetadata(
-  { params }: Props,
-  // parent: ResolvingMetadata
-): Promise<Metadata> {
- 
-  // fetch data
-  const data = await getPost(params.slug)
-  if(!data) notFound()
+ export async function generateMetadata(
+   { params }: Props,
+   // parent: ResolvingMetadata
+ ): Promise<Metadata> {
+
+   // fetch data
+   const { slug } = await params
+   const data = await getPost(slug)
+   if(!data) notFound()
  
   // optionally access and extend (rather than replace) parent metadata
   // const previousImages = (await parent).openGraph?.images || []
@@ -31,7 +32,8 @@ export async function generateMetadata(
 
 export default async function Post({ params }: Props) {
 
-  const data = await getPost( params.slug )
+  const { slug } = await params
+  const data = await getPost( slug )
   if(!data) notFound()
 
   return (

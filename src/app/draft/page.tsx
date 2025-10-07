@@ -21,11 +21,11 @@ export default async function Home() {
   return (
     <main>
       <h1 style={{
-        fontSize: '3rem', 
+        fontSize: '3rem',
         fontWeight: 'bold',
         borderBottom: '1px solid grey'
       }}>Drafts</h1>
-      <PostList posts={data.items} prefix={'/draft'} />
+      <PostList posts={data?.items || []} prefix={'/draft'} />
       {/* <CodeHighlight lang="json">{JSON.stringify(data,null,2)}</CodeHighlight>  */}
     </main>
   );

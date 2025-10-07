@@ -12,12 +12,12 @@ export async function getHome(skip = 0, limit = 10){
 
   return await fetch(
     ContentApi +
-    `/spaces/${CONTENTFUL_SPACE_ID}/environments/master/entries?` + 
+    `/spaces/${CONTENTFUL_SPACE_ID}/environments/master/entries?` +
     `skip=${skip}&limit=${limit}&` +
     `order=-sys.createdAt&` +
     `access_token=${CONTENTFUL_DELIVERY_API}`,
-    { next: { tags: ["home"] } }
-  ).then(res => res.json())  
+    { cache: 'force-cache', next: { tags: ["home"] } }
+  ).then(res => res.json())
 
 }
 
@@ -25,11 +25,11 @@ export async function getDrafts(skip = 0, limit = 10){
 
   return await fetch(
     PreviewApi +
-    `/spaces/${CONTENTFUL_SPACE_ID}/environments/master/entries?` + 
+    `/spaces/${CONTENTFUL_SPACE_ID}/environments/master/entries?` +
     `skip=${skip}&limit=${limit}&` +
     `order=-sys.createdAt&` +
     `access_token=${CONTENTFUL_PREVIEW_API}`,
-    { next: { tags: ["draft"] } }
+    { cache: 'force-cache', next: { tags: ["draft"] } } as any
   ).then(res => res.json())
 
 }
@@ -38,11 +38,11 @@ export async function getDraft(slug: string){
 
   return await fetch(
     PreviewApi +
-    `/spaces/${CONTENTFUL_SPACE_ID}/environments/master/entries?` + 
+    `/spaces/${CONTENTFUL_SPACE_ID}/environments/master/entries?` +
     `fields.slug=${decodeURIComponent(slug)}&` +
     `content_type=post&` +
     `access_token=${CONTENTFUL_PREVIEW_API}`,
-    { next: { tags: [`draft/${slug}`] } }
+    { cache: 'force-cache', next: { tags: [`draft/${slug}`] } } as any
   ).then(res => res.json())
   .then(entries => entries.items[0])
 
@@ -52,11 +52,11 @@ export async function getPost(slug: string){
 
   return await fetch(
     ContentApi +
-    `/spaces/${CONTENTFUL_SPACE_ID}/environments/master/entries?` + 
+    `/spaces/${CONTENTFUL_SPACE_ID}/environments/master/entries?` +
     `fields.slug=${decodeURIComponent(slug)}&` +
     `content_type=post&` +
     `access_token=${CONTENTFUL_DELIVERY_API}`,
-    { next: { tags: [`post/${slug}`] } }
+    { cache: 'force-cache', next: { tags: [`post/${slug}`] } } as any
   ).then(res => res.json())
   .then(entries => entries.items[0])
 
@@ -88,12 +88,12 @@ export async function getByTag(tag: string){
 
   return await fetch(
     ContentApi +
-    `/spaces/${CONTENTFUL_SPACE_ID}/environments/master/entries?` + 
+    `/spaces/${CONTENTFUL_SPACE_ID}/environments/master/entries?` +
     `metadata.tags.sys.id[in]=${decodeURIComponent(tag)}&` +
     `content_type=post&` +
     `order=-sys.createdAt&` +
     `access_token=${CONTENTFUL_DELIVERY_API}`,
-    { next: { tags: [`tag/${tag}`] } }
+    { cache: 'force-cache', next: { tags: [`tag/${tag}`] } } as any
   ).then(res => res.json())
 
 }

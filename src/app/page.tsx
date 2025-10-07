@@ -22,7 +22,7 @@ export default async function Home() {
   return (
     <main>
       <Hero />
-      <PostList posts={data.items} />
+      <PostList posts={data?.items || []} />
       {/* <CodeHighlight lang="json">{JSON.stringify(data,null,2)}</CodeHighlight>  */}
     </main>
   );
