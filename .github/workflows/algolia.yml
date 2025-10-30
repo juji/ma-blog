@@ -13,4 +13,4 @@ jobs:
     steps:
       - name: Send HTTP Keep algolia alive
         run: |
-          curl --fail --show-error --silent "https://blog.jujiyangasli.com/api/cron?secret=${{ secrets.CRON_SECRET }}"
+          curl --fail --show-error --silent "https://blog.jujiyangasli.com/api/algolia-keep-alive?secret=${{ secrets.CRON_SECRET }}"
