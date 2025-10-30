@@ -1,1 +1,16 @@
+name: Ping algolia
+env:
+  CRON_SECRET: ${{ secrets.CRON_SECRET }}
 
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs every day at midnight UTC
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send HTTP Keep algolia alive
+        run: |
+          curl --fail --show-error --silent "https://blog.jujiyangasli.com/api/cron?secret=${{ secrets.CRON_SECRET }}"
