@@ -8,7 +8,7 @@ import { Pagination } from '@/components/pagination';
 
 export const metadata: Metadata = {
   title: "Draft | Juji's Blog",
-  description: 'Just some notes that will help me with web development. I hope it can help you too. ;)',
+  description: 'Just some notes that will help me with web development, or some other stuff. I hope it can help you too. ;)',
   openGraph: openGraphImage
 }
 
