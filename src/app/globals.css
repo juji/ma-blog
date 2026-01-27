@@ -9,7 +9,7 @@
   /* --link-color-hover: color(srgb 0.651821 0.858263 0.408403); */
   --link-color-active: hsla(88, 61%, 50%,1);
   /* --link-color-active: color(srgb 0.434174 0.666891 0.159776); */
-  --footer-bg: #aacb12;
+  --footer-bg: #52b511;
   --footer-text-color: #000;
   --header-bg: rgb(17 17 17 / 72%);
   --border-bottom-color: #292929;
@@ -38,7 +38,7 @@
     /* --link-color-hover: color(srgb 0.651821 0.858263 0.408403); */
     --link-color-active: hsla(88, 61%, 50%,1);
     /* --link-color-active: color(srgb 0.434174 0.666891 0.159776); */
-    --footer-bg: #aacb12;
+    --footer-bg: #52b511;
     --footer-text-color: #000;
     --header-bg: rgb(17 17 17 / 72%);
     --border-bottom-color: #292929;
@@ -57,7 +57,7 @@
     --link-color-active: hsla(88, 61%, 50%,1);
     /* --link-color-active: color(srgb 0.434174 0.666891 0.159776); */
     --link-color-active: color(srgb 0.434174 0.666891 0.159776);
-    --footer-bg: #aacb12;
+    --footer-bg: #52b511;
     --footer-text-color: #000;
     --header-bg: rgb(17 17 17 / 72%);
     --border-bottom-color: #292929;
