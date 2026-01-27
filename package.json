@@ -24,7 +24,7 @@
     "date-fns": "^3.6.0",
     "dv-social-share": "^0.0.7",
     "katex": "^0.16.10",
-    "next": "15.1.8",
+    "next": "15.1.11",
     "react": "^19",
     "react-dom": "^19",
     "react-hot-toast": "^2.4.1",

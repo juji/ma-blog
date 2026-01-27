@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import PostList from "@/components/post-list";
 import { getDrafts } from '@/lib/content/contentful/fetch'
 import { openGraphImage } from '@/app/shared-metadata'
+import { Pagination } from '@/components/pagination';
 
 export const metadata: Metadata = {
   title: "Draft | Juji's Blog",
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 
 export default async function Home() {
 
-  const data = await getDrafts()
+  const data = await getDrafts(0,5)
 
   return (
     <main>
@@ -23,7 +24,12 @@ export default async function Home() {
         borderBottom: '1px solid grey'
       }}>Drafts</h1>
       <PostList posts={data?.items || []} prefix={'/draft'} />
-      {/* <CodeHighlight lang="json">{JSON.stringify(data,null,2)}</CodeHighlight>  */}
+      <Pagination
+        totalEntity={data?.total || 0}
+        currentPageEntity={data.limit || 0} 
+        currentPage={1} 
+        linkPrefix="/drafts/"
+      />
     </main>
   );
 }

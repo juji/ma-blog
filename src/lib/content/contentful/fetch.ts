@@ -8,7 +8,7 @@ import {
 const ContentApi = 'https://cdn.contentful.com'
 const PreviewApi = 'https://preview.contentful.com'
 
-export async function getHome(skip = 0, limit = 100){
+export async function getHome(skip = 0, limit = 10){
 
   return await fetch(
     ContentApi +
@@ -21,7 +21,7 @@ export async function getHome(skip = 0, limit = 100){
 
 }
 
-export async function getDrafts(skip = 0, limit = 100){
+export async function getDrafts(skip = 0, limit = 10){
 
   return await fetch(
     PreviewApi +

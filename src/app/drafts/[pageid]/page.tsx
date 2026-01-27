@@ -3,8 +3,8 @@ import type { Metadata } from 'next'
 
 import Hero from "@/components/hero";
 import PostList from "@/components/post-list";
-import { getHome } from '@/lib/content/contentful/fetch'
-import { openGraphImage } from './shared-metadata'
+import { getDrafts } from '@/lib/content/contentful/fetch'
+import { openGraphImage } from '@/app/shared-metadata'
 import { Pagination } from '@/components/pagination';
 
 // import CodeHighlight from '@/components/code-highlight';
@@ -15,9 +15,14 @@ export const metadata: Metadata = {
   openGraph: openGraphImage
 }
 
-export default async function Home() {
-
-  const data = await getHome(0,5);
+export default async function Home({
+  params
+}: {
+  params: Promise<{ pageid: string }>
+}) {
+  
+  const pageId = await params.then(p => Number(p.pageid));
+  const data = await getDrafts(5 * (pageId - 1), 5);
 
   return (
     <main>
@@ -26,8 +31,8 @@ export default async function Home() {
       <Pagination 
         totalEntity={data?.total || 0}
         currentPageEntity={data.limit || 0} 
-        currentPage={1} 
-        linkPrefix="/posts/"
+        currentPage={pageId} 
+        linkPrefix="/drafts/"
       />
     </main>
   );
