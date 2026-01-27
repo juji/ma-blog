@@ -1,34 +1,10 @@
 
-const bg = [
-  '#fdbe02',
-  '#88fd02',
-  '#02fdf9',
-  '#fdf502',
-  '#02fd41',
-  //
-  '#fdbe02',
-  '#88ff00',
-  '#02fdf9',
-  '#fdf502',
-  '#02fd41',
-  //
-  '#fdbe02',
-  '#88ff00',
-  '#02fdf9',
-  '#fdf502',
-  '#02fd41',
-]
-
-function getColor(last: string|null) : string {
-  const color = bg[Math.floor(Math.random()*bg.length)]
-  return last && last === color ? getColor(last) : color
-}
 
 export default function Footer({ className, children }: React.HTMLAttributes<HTMLElement>){
 
   return <div 
     className={className}
-    style={{ background: getColor(null) }}>
+    >
       {children}
     </div>
 
