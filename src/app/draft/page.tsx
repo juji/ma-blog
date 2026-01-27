@@ -1,12 +1,9 @@
 
 import type { Metadata } from 'next'
 
-// import Post from '@/types/post';
-// import Hero from "@/components/hero";
 import PostList from "@/components/post-list";
 import { getDrafts } from '@/lib/content/contentful/fetch'
 import { openGraphImage } from '@/app/shared-metadata'
-// import CodeHighlight from '@/components/code-highlight';
 
 export const metadata: Metadata = {
   title: "Draft | Juji's Blog",

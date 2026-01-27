@@ -1,7 +1,6 @@
 
 import type { Metadata } from 'next'
 
-// import Post from '@/types/post';
 import Hero from "@/components/hero";
 import PostList from "@/components/post-list";
 import { getHome } from '@/lib/content/contentful/fetch'

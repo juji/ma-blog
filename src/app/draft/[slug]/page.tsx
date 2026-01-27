@@ -1,4 +1,4 @@
-import type Post from "@/types/post";
+
 import type { Metadata, /* ResolvingMetadata */ } from 'next'
 import { getDraft } from '@/lib/content/contentful/fetch'
 import { notFound } from 'next/navigation'

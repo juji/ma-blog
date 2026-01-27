@@ -1,6 +1,5 @@
 
 import type { MetadataRoute } from 'next'
-// import type Post from '@/types/post'
 import type { Entry } from "contentful";
 import { BASE_URL } from '@/lib/constants'
 import { getPageNum, getPages } from '@/lib/content/contentful/sitemap'
